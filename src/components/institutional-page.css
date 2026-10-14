@@ -1,0 +1,117 @@
+.institutional-width { width: min(100% - 112px, 1328px); margin-inline: auto; }
+.institutional-page section[id] { scroll-margin-top: 24px; }
+.institutional-breadcrumb { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 28px 0 0; font-size: 12px; color: var(--muted); }
+.institutional-breadcrumb a { display: inline-flex; align-items: center; min-height: 30px; }
+.institutional-breadcrumb a:hover { color: var(--brand); text-decoration: underline; }
+.institutional-breadcrumb [aria-current] { color: var(--brand-dark); }
+.institutional-title { text-align: center; max-width: 980px; margin: 46px auto 0; }
+.institutional-eyebrow { display: inline-block; margin: 0 0 20px; padding: 6px 12px; border-radius: 6px; background: var(--brand-light); color: var(--brand-dark); font-size: 11px; font-weight: 500; }
+.institutional-title h1 { margin: 0; font-size: clamp(44px, 5.5vw, 76px); line-height: 1.06; font-weight: 500; letter-spacing: -.065em; text-wrap: balance; }
+.institutional-down { display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid #335c8533; border-radius: 50%; color: var(--brand); margin: 26px auto; transition: background .2s, transform .2s; }
+.institutional-down:hover { background: var(--brand-light); transform: translateY(3px); }
+.institutional-index { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; }
+.institutional-index a { display: inline-flex; align-items: center; justify-content: space-between; min-height: 44px; padding: 8px 18px; gap: 24px; border: 1px solid #335c8526; border-radius: 100px; color: var(--brand-dark); font-size: 13px; transition: background .2s; }
+.institutional-index a:hover { background: var(--brand-light); }
+.institutional-index svg { flex-shrink: 0; }
+.institutional-story { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: clamp(32px, 6vw, 86px); align-items: center; padding-block: 80px; }
+.institutional-story h2, .institutional-section-heading h2 { margin: 0 0 26px; font-size: clamp(33px, 3.2vw, 46px); line-height: 1.13; font-weight: 500; letter-spacing: -.05em; text-wrap: balance; }
+.institutional-story-copy > p:not(.institutional-eyebrow) { margin: 0; font-size: 15px; line-height: 1.85; color: var(--muted); text-wrap: pretty; }
+.institutional-story-copy > p:not(.institutional-eyebrow) + p { margin-top: 22px; }
+.institutional-story-photo { max-width: 500px; width: 100%; justify-self: end; padding: 10px; border-radius: 24px; background: var(--brand); box-shadow: 6px 8px 0 var(--brand-dark); }
+.institutional-story-photo img { display: block; width: 100%; height: auto; border-radius: 15px; }
+.institutional-story.is-reversed .institutional-story-photo { grid-column: 1; grid-row: 1; justify-self: start; }
+.institutional-story.is-reversed .institutional-story-copy { grid-column: 2; grid-row: 1; }
+.institutional-story.is-dark { padding: 56px; background: var(--brand-dark); border-radius: 28px; color: white; margin-bottom: 80px; }
+.institutional-story.is-dark .institutional-story-copy > p:not(.institutional-eyebrow) { color: #e0ebf5; }
+.institutional-story.is-dark .institutional-story-photo { box-shadow: none; padding: 0; background: transparent; overflow: hidden; border-radius: 18px; }
+.institutional-story.is-dark .institutional-story-photo img { border-radius: 18px; }
+.institutional-principles { padding-block: 0 80px; }
+.institutional-section-heading { text-align: center; margin-bottom: 36px; }
+.institutional-section-heading h2 { margin-bottom: 0; }
+.institutional-principles-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 36px; list-style: none; margin: 0; padding: 0; }
+.institutional-principles-list li { position: relative; padding-block: 30px; border-top: 1px solid #335c852e; }
+.institutional-principles-list li::before { content: ""; position: absolute; top: -1px; left: 0; width: 100%; height: 2px; background: var(--brand); transform: scaleX(0); transform-origin: left; transition: transform .45s; }
+.institutional-principles-list li > span { display: grid; place-items: center; width: 44px; height: 44px; background: var(--brand-light); color: var(--brand-dark); border-radius: 50%; font-size: 12px; margin-bottom: 20px; transition: background .3s, color .3s; }
+.institutional-principles-list h3 { font-size: 23px; font-weight: 500; line-height: 1.2; letter-spacing: -.035em; color: var(--brand-dark); margin: 0 0 12px; }
+.institutional-principles-list p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.75; }
+.institutional-authorizations { padding-top: 72px; display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: 64px; align-items: start; }
+.institutional-authorization { padding: 32px; border-radius: 22px; background: #f8fafc; }
+.institutional-authorization h2 { font-size: clamp(25px, 2.5vw, 35px); font-weight: 500; letter-spacing: -.04em; line-height: 1.2; margin: 0 0 24px; text-wrap: balance; }
+.institutional-authorization > p:not(.institutional-eyebrow) { font-size: 14px; line-height: 1.8; color: var(--muted); margin: 0 0 20px; }
+.institutional-authorization .institutional-organism { padding: 12px 16px; border-radius: 8px; background: var(--brand-light); color: var(--brand-dark); }
+.institutional-accreditations { list-style: none; padding: 0; margin: 24px 0 0; }
+.institutional-accreditations li { position: relative; padding: 16px 0 16px 18px; border-top: 1px solid #335c8526; font-size: 14px; line-height: 1.7; color: var(--muted); }
+.institutional-accreditations li::before { content: ""; position: absolute; left: 0; top: 26px; width: 5px; height: 5px; border-radius: 50%; background: var(--brand); }
+.institutional-certificate-section { padding-block: 72px 80px; }
+.institutional-documents { list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; padding: 0; margin: 0; }
+.institutional-documents li { display: flex; flex-direction: column; align-items: flex-start; background: #f8fafc; border: 1px solid #335c851a; border-radius: 22px; padding: 32px; }
+.institutional-document-icon { display: grid; place-items: center; width: 52px; height: 52px; border-radius: 14px; background: var(--brand-light); color: var(--brand-dark); margin-bottom: 24px; }
+.institutional-documents h3 { margin: 0 0 16px; font-size: clamp(24px, 2vw, 30px); font-weight: 500; letter-spacing: -.04em; line-height: 1.25; color: var(--brand-dark); text-wrap: balance; }
+.institutional-documents p { margin: 0 0 28px; font-size: 14px; line-height: 1.75; color: var(--muted); }
+.institutional-download { display: inline-flex; justify-content: space-between; align-items: center; gap: 24px; min-height: 46px; padding: 12px 20px; border-radius: 100px; background: var(--brand); color: white; font-size: 13px; margin-top: auto; transition: background .2s, transform .2s; }
+.institutional-download svg { flex-shrink: 0; transition: transform .2s; }
+.institutional-report { position: relative; overflow: hidden; isolation: isolate; padding: 56px 64px; margin-block: 64px 80px; border-radius: 28px; background: var(--brand-dark); color: white; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 32px; }
+.institutional-report > div:not(.institutional-report-decoration), .institutional-report > a { position: relative; z-index: 1; }
+.institutional-report h2 { margin: 0; font-size: 18px; font-weight: 400; }
+.institutional-report h2 span { display: block; font-size: clamp(72px, 10vw, 128px); letter-spacing: -.06em; line-height: 1.2; }
+.institutional-report .institutional-download { background: white; color: var(--brand-dark); margin: 0; }
+.institutional-report-decoration { position: absolute; right: 25%; bottom: -40px; color: #c9deef24; transform: rotate(-12deg); pointer-events: none; }
+.institutional-report :focus-visible { outline-color: white; }
+@media (hover: hover) {
+  .institutional-principles-list li:hover::before { transform: scaleX(1); }
+  .institutional-principles-list li:hover > span { background: var(--brand); color: white; }
+  .institutional-download:hover { background: var(--brand-dark); transform: translateY(-2px); }
+  .institutional-download:hover svg { transform: translateY(2px); }
+  .institutional-report .institutional-download:hover { background: var(--brand-light); }
+}
+@media (max-width: 900px) {
+  .institutional-width { width: calc(100% - 64px); }
+  .institutional-story { grid-template-columns: 1fr; gap: 32px; padding-block: 56px; }
+  .institutional-story-photo { max-width: 420px; justify-self: center; }
+  .institutional-story.is-reversed .institutional-story-copy, .institutional-story.is-reversed .institutional-story-photo { grid-column: 1; grid-row: auto; justify-self: center; }
+  .institutional-story.is-dark { padding: 36px; margin-bottom: 56px; }
+  .institutional-principles { padding-bottom: 56px; }
+  .institutional-principles-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 28px; }
+  .institutional-authorizations { padding-top: 56px; grid-template-columns: 1fr; gap: 24px; }
+  .institutional-certificate-section { padding-block: 56px; }
+  .institutional-report { padding: 40px; margin-block: 56px; }
+}
+@media (max-width: 600px) {
+  .institutional-width { width: calc(100% - 40px); }
+  .institutional-breadcrumb { margin-top: 16px; font-size: 11px; gap: 8px; }
+  .institutional-title { margin-top: 28px; }
+  .institutional-title h1 { font-size: clamp(35px, 9vw, 48px); line-height: 1.1; }
+  .institutional-eyebrow { margin-bottom: 16px; }
+  .institutional-down { margin-block: 20px; }
+  .institutional-index { gap: 6px; }
+  .institutional-index a { padding: 8px 12px; gap: 12px; font-size: 11px; }
+  .institutional-story { padding-block: 40px; gap: 24px; }
+  .institutional-story h2, .institutional-section-heading h2 { font-size: clamp(30px, 7.6vw, 38px); margin-bottom: 22px; }
+  .institutional-story-copy > p:not(.institutional-eyebrow) { font-size: 14px; line-height: 1.8; }
+  .institutional-story-copy > p:not(.institutional-eyebrow) + p { margin-top: 18px; }
+  .institutional-story-photo { width: calc(100% - 16px); max-width: 350px; padding: 7px; border-radius: 18px; box-shadow: 5px 6px 0 var(--brand-dark); }
+  .institutional-story-photo img { border-radius: 11px; }
+  .institutional-story.is-dark { padding: 28px 22px; margin-bottom: 40px; border-radius: 22px; }
+  .institutional-story.is-dark .institutional-story-photo { width: 100%; }
+  .institutional-principles { padding-bottom: 40px; }
+  .institutional-section-heading { text-align: left; margin-bottom: 24px; }
+  .institutional-section-heading h2 { margin-bottom: 0; }
+  .institutional-principles-list { grid-template-columns: 1fr; }
+  .institutional-principles-list li { display: grid; grid-template-columns: 38px minmax(0, 1fr); gap: 16px; padding-block: 22px; }
+  .institutional-principles-list li > span { width: 38px; height: 38px; margin: 0; font-size: 11px; }
+  .institutional-principles-list h3 { font-size: 21px; margin-bottom: 8px; }
+  .institutional-principles-list p { line-height: 1.65; }
+  .institutional-authorizations { padding-top: 40px; gap: 20px; }
+  .institutional-authorization { padding: 26px 20px; }
+  .institutional-authorization h2 { font-size: 27px; }
+  .institutional-authorization > p:not(.institutional-eyebrow) { margin-bottom: 16px; }
+  .institutional-certificate-section { padding-block: 40px; }
+  .institutional-documents { grid-template-columns: 1fr; gap: 16px; }
+  .institutional-documents li { padding: 24px 20px; }
+  .institutional-document-icon { width: 44px; height: 44px; margin-bottom: 20px; }
+  .institutional-documents h3 { font-size: 25px; }
+  .institutional-download { width: 100%; gap: 12px; }
+  .institutional-report { padding: 28px 22px; margin-block: 40px; gap: 28px; border-radius: 22px; }
+  .institutional-report h2 span { font-size: 88px; }
+  .institutional-report-decoration { right: -25px; bottom: 20px; }
+}

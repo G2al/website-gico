@@ -1,0 +1,13 @@
+/* Bridge the visual gap so hovering into the dropdown never closes it. */
+.nav-link.is-active, .nav-submenu a[aria-current="page"] { color: var(--brand); }
+.nav-submenu a[aria-current="page"] { background: var(--background); }
+@media (min-width: 1200px) and (hover: hover) and (pointer: fine) {
+  .nav-submenu::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -12px;
+    height: 12px;
+  }
+}

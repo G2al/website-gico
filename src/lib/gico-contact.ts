@@ -1,0 +1,28 @@
+export const gicoContact = {
+  name: "GiCo Società Cooperativa Sociale - Impresa Sociale",
+  about: "La GiCo Società Cooperativa Sociale – Impresa Sociale è un’entità guidata dallo spirito di San Giuseppe Benedetto Cottolengo, il cui insegnamento ispira ogni nostra azione.",
+  street: "Via Ambra, 41/bis",
+  city: "Trentola Ducenta (CE)",
+  phone: "+39 081.8129450",
+  phoneHref: "tel:+390818129450",
+  whatsapp: "+39 392.9558866",
+  whatsappHref: "https://wa.me/393929558866",
+  email: "gico@gicocoop.it",
+  trainingEmail: "ecppegaso@gicocoop.it",
+  pec: "gicoscarl@legalmail.it",
+  postalCode: "81038",
+  departmentEmails: [
+    { label: "info e varie", address: "gico@gicocoop.it" },
+    { label: "centro sociale", address: "centrosociale@gicocoop.it" },
+    { label: "direzione", address: "direttore@gicocoop.it" },
+    { label: "corsi di formazione e certificazioni", address: "formazione@gicocoop.it" },
+    { label: "università", address: "ecppegaso@gicocoop.it" },
+  ],
+  pecAddresses: ["assistenza.gicocoop@legalmail.it", "gicoscarl@legalmail.it"],
+  socialProfiles: [
+    { platform: "Instagram", area: "Assistenza", href: "https://www.instagram.com/gicoassistenza/" },
+    { platform: "Facebook", area: "Assistenza", href: "https://www.facebook.com/profile.php?id=100057523266078" },
+    { platform: "Instagram", area: "Formazione", href: "https://www.instagram.com/gicoformazione/" },
+    { platform: "Facebook", area: "Formazione", href: "https://www.facebook.com/gicoformazione" },
+  ],
+} as const;
