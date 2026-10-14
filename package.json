@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "node app.js",
     "lint": "eslint",
     "db:setup": "node scripts/setup-news-db.mjs",
     "admin:password": "node scripts/reset-admin-password.mjs"

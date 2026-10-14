@@ -33,12 +33,26 @@ Repository: `https://github.com/G2al/website-gico.git`, ramo `main`.
 Collega la repository nell'estensione Git di Plesk. Gli aggiornamenti si inviano dal PC con:
 
 ```bash
-git add src public scripts docs README.md package.json package-lock.json next.config.ts
+git add src public scripts docs README.md app.js package.json package-lock.json next.config.ts
 git commit -m "Aggiornamento sito GiCo"
 git push
 ```
 
-Il push non aggiorna automaticamente Plesk finché non sono configurati il pull/deploy e le eventuali azioni aggiuntive. Dopo il deploy occorrono installazione, build e riavvio del processo Node.js. Se usi l'estensione Node.js di Plesk con Passenger, il file di avvio deve essere configurato per quella modalità: non è sufficiente selezionare una pagina React. La configurazione esatta dipende dal server.
+Il push non aggiorna automaticamente Plesk finché non sono configurati il pull/deploy e le eventuali azioni aggiuntive.
+
+Con il progetto distribuito in `/httpdocs`, imposta nell'estensione Node.js:
+
+- Application Root: `/httpdocs`.
+- Document Root: `/httpdocs/public`, così sorgenti e configurazioni non sono nella cartella pubblica.
+- Application Startup File: `app.js`.
+- Application Mode: `Production`.
+- Versione Node.js: 24, oppure una versione compatibile con tutte le dipendenze installate.
+
+Configura le variabili d'ambiente sul server, poi esegui `npm ci --include=dev`, `npm run db:setup` solo alla prima installazione su un database nuovo, e `npm run build`. Infine premi **Restart App** in Plesk. Non avviare un secondo processo con `npm start` quando l'app è già gestita da Passenger.
+
+`app.js` riconosce Passenger e utilizza il suo socket. Fuori da Plesk, `npm start` avvia lo stesso server sulla porta `PORT` (3000 per impostazione predefinita). Per lo sviluppo resta disponibile `npm run dev`.
+
+Per gli aggiornamenti successivi: pull/deploy, `npm ci --include=dev`, `npm run build`, **Restart App**. Non eseguire nuovamente il setup del database ad ogni deploy. In caso di cambiamenti futuri allo schema, seguire le relative istruzioni di migrazione.
 
 Non pubblicare `.env.local`. Configura le variabili sul server e conserva la directory `.data/news-images` su disco persistente, scrivibile e non eliminato durante i deploy. I backup devono comprendere database e immagini caricate.
 
