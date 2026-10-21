@@ -1,0 +1,27 @@
+.video-section { max-width: 1440px; margin: 0 auto; padding: 0 56px 96px; }
+.video-heading { margin-bottom: 40px; text-align: center; }
+.video-heading .section-lead { margin-inline: auto; }
+.video-frame { max-width: 1200px; margin: 0 auto; padding: 11px; border-radius: 26px; background: var(--brand); box-shadow: 8px 10px 0 var(--brand-dark); }
+.video-frame video, .video-placeholder { display: block; width: 100%; aspect-ratio: 16 / 9; border-radius: 17px; background: var(--brand-dark); }
+.video-placeholder { position: relative; isolation: isolate; overflow: hidden; display: grid; place-items: center; }
+.video-placeholder img { z-index: -2; object-fit: cover; filter: saturate(0.7); }
+.video-placeholder::after { content: ""; position: absolute; inset: 0; z-index: -1; background: radial-gradient(circle at center, #234565a6 0%, #16232ee0 100%); }
+.video-placeholder-content { display: flex; flex-direction: column; align-items: center; gap: 14px; padding: 24px; color: #fff; text-align: center; }
+.video-placeholder-play { position: relative; display: grid; place-items: center; width: 84px; height: 84px; border-radius: 50%; background: #fff; color: var(--brand); }
+.video-placeholder-play svg { margin-left: 4px; }
+.video-placeholder-play::before { content: ""; position: absolute; inset: -10px; border: 1px solid #ffffff80; border-radius: 50%; animation: video-pulse 2.6s ease-out infinite; }
+.video-placeholder-badge { margin: 8px 0 0; padding: 7px 14px; border-radius: 100px; background: var(--brand-light); color: var(--brand-dark); font-size: 12px; font-weight: 500; }
+.video-placeholder-note { max-width: 420px; margin: 0; color: #dbe7f1; font-size: 13px; line-height: 1.6; }
+@keyframes video-pulse { from { opacity: 1; transform: scale(0.9); } to { opacity: 0; transform: scale(1.45); } }
+
+@media (max-width: 1100px) {
+  .video-section { padding-inline: 32px; }
+}
+@media (max-width: 600px) {
+  .video-section { padding: 0 20px 56px; }
+  .video-heading { margin-bottom: 28px; }
+  .video-frame { padding: 7px; border-radius: 18px; box-shadow: 5px 7px 0 var(--brand-dark); }
+  .video-frame video, .video-placeholder { border-radius: 12px; }
+  .video-placeholder { aspect-ratio: 4 / 3; }
+  .video-placeholder-play { width: 68px; height: 68px; }
+}

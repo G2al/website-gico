@@ -5,9 +5,9 @@ import { ArrowLink } from "./arrow-link";
 import { originalPage } from "@/lib/navigation";
 
 const photographs = [
-  { src: "/images/hero-gico.webp", alt: "Mani unite, simbolo di collaborazione e inclusione", position: "center" },
-  { src: "/images/hero-formazione.webp", alt: "Aula del Centro di Formazione GiCo", position: "center 58%" },
-  { src: "/images/hero-centro-sociale.webp", alt: "Giardino del Centro Sociale Polifunzionale Le Perle Preziose", position: "center" },
+  { src: "/images/hero-gico.webp", alt: "Mani unite, simbolo di collaborazione e inclusione", position: "center", label: "Inclusione" },
+  { src: "/images/hero-formazione.webp", alt: "Aula del Centro di Formazione GiCo", position: "center 58%", label: "Formazione" },
+  { src: "/images/hero-centro-sociale.webp", alt: "Giardino del Centro Sociale Polifunzionale Le Perle Preziose", position: "center", label: "Centro Sociale" },
 ];
 
 export function HomeHero() {
@@ -27,6 +27,7 @@ export function HomeHero() {
           {photographs.map((photo, index) => (
             <div className="hero-photo" key={photo.src}>
               <Image src={photo.src} alt={photo.alt} fill sizes="(max-width: 600px) 90vw, (max-width: 1199px) 30vw, 390px" loading={index === 0 ? "eager" : "lazy"} fetchPriority={index === 0 ? "high" : "auto"} style={{ objectPosition: photo.position }} />
+              <span className="hero-photo-label" aria-hidden="true">{photo.label}</span>
             </div>
           ))}
         </div>
