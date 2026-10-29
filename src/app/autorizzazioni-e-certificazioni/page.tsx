@@ -1,37 +1,71 @@
 import type { Metadata } from "next";
 import { InstitutionalPage, DocumentCards } from "@/components/institutional-page";
-import { certificates } from "@/lib/institutional-content";
+import { certificates, centreNames, socialCentre, trainingCentre, trainingRecognitions } from "@/lib/institutional-content";
+import "@/components/training-pages.css";
+import "./authorizations.css";
 
 export const metadata: Metadata = {
   title: "Autorizzazioni e Certificazioni | GiCo",
-  description: "Autorizzazioni e accreditamenti GiCo per il Centro Sociale Le Perle Preziose e il Centro di Formazione. Consulta e scarica i certificati pubblicati.",
+  description: "Autorizzazioni del Centro Sociale Le Perle Preziose, accreditamento regionale, centri autorizzati e convenzioni del Centro di Formazione Edoardo Apicella, certificazioni ISO di GiCo.",
 };
 
-const accreditations = [
-  "ECP (E-learning Center Point) dal 09/06/2014 per l’Università Telematica Pegaso",
-  "EiPoint dal 05/03/2021 per l’Universitas Mercatorum – Università degli Studi delle Camere di Commercio",
-  "E-learning Point dal 20/09/2022 per l’Università Telematica San Raffaele – UniRoma5",
-  "Ei-center Business dal 10/03/2015 per il rilascio di corsi CERTIPASS e certificazioni EIPASS",
-  "PEKIT Center – Fond. Sviluppo Europa dal 27/03/2021 per il rilascio delle certificazioni informatiche PEKIT",
-];
-
 export default function AuthorizationsPage() {
-  return <InstitutionalPage title="Autorizzazioni e Certificazioni" path="/autorizzazioni-e-certificazioni" sections={[{ id: "autorizzazioni", label: "Autorizzazioni" }, { id: "accreditamenti", label: "Accreditamenti" }, { id: "certificazioni", label: "Certificazioni" }]}>
-    <div className="institutional-authorizations institutional-width">
-      <section id="autorizzazioni" className="institutional-authorization" aria-labelledby="social-authorization-title" data-reveal>
-        <p className="institutional-eyebrow">GiCo</p><h2 id="social-authorization-title">Centro Sociale Polifunzionale per Disabili “Le Perle Preziose”</h2>
-        <p>(Autorizzazione Ufficio di Piano, prot. n. 506-06/06/2013 Cogestore PTRI/BdSD e liberazione n. 587 del 04/05/2018)</p>
-      </section>
-      <section id="accreditamenti" className="institutional-authorization" aria-labelledby="training-authorization-title" data-reveal data-reveal-delay="90">
-        <p className="institutional-eyebrow">GiCo</p><h2 id="training-authorization-title">Centro Studi Autorizzazione Formazione Professionale</h2>
-        <p>Esito finale domanda di accreditamento ai sensi del D.G.R. 226/06, pubblicata sul B.U.R.C. n.16 del 3 Aprile 2006, art. 16.</p>
-        <p className="institutional-organism">Codice Organismo: <strong>292/01/05</strong></p>
-        <ul className="institutional-accreditations">{accreditations.map(accreditation => <li key={accreditation}>{accreditation}</li>)}</ul>
-      </section>
-    </div>
-    <section id="certificazioni" className="institutional-certificate-section institutional-width" aria-labelledby="certifications-title">
-      <div className="institutional-section-heading" data-reveal><p className="institutional-eyebrow">GiCo</p><h2 id="certifications-title">Certificazioni</h2></div>
-      <DocumentCards documents={certificates} />
+  return <InstitutionalPage
+    title="Autorizzazioni e Certificazioni"
+    intro="Le autorizzazioni, gli accreditamenti e le certificazioni di qualità delle due realtà di GiCo."
+    path="/autorizzazioni-e-certificazioni"
+    sections={[{ id: "centro-sociale", label: "Centro Sociale" }, { id: "centro-formazione", label: "Centro di Formazione" }, { id: "certificazioni", label: "Certificazioni di qualità" }]}
+  >
+    <section id="centro-sociale" className="section" aria-labelledby="centro-sociale-title">
+      <div className="wrap split-section">
+        <div data-reveal>
+          <p className="kicker">Autorizzazioni</p>
+          <h2 id="centro-sociale-title">{centreNames.social}</h2>
+        </div>
+        <div className="info-box" data-reveal data-reveal-delay="60">
+          <ul>{socialCentre.authorizations.map(item => <li key={item}>{item}</li>)}</ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="centro-formazione" className="section section-alt" aria-labelledby="centro-formazione-title">
+      <div className="wrap split-section">
+        <div data-reveal>
+          <p className="kicker">Accreditamenti, centri autorizzati e convenzioni</p>
+          <h2 id="centro-formazione-title">{centreNames.training}</h2>
+        </div>
+        <div data-reveal data-reveal-delay="60">
+          <div className="recognitions-group">
+            <h3>Accreditamento</h3>
+            <div className="info-box">
+              <p><strong>{trainingCentre.accreditation.title}.</strong> {trainingCentre.accreditation.text}</p>
+              <p className="code">Codice organismo: {trainingCentre.accreditation.code}</p>
+            </div>
+          </div>
+          <div className="recognitions-group">
+            <h3>Centri autorizzati</h3>
+            <ul className="recognitions">{trainingRecognitions.centres.map(item => <li key={item.name}><strong>{item.name}</strong><span>{item.text}</span></li>)}</ul>
+          </div>
+          <div className="recognitions-group">
+            <h3>Convenzioni</h3>
+            <ul className="recognitions">{trainingRecognitions.agreements.map(item => <li key={item.name}><strong>{item.name}</strong><span>{item.text}</span></li>)}</ul>
+          </div>
+          <div className="recognitions-group">
+            <h3>Formazione universitaria</h3>
+            <p className="authorizations-note">Collaborazioni con università telematiche per corsi di laurea, master, perfezionamenti e percorsi di alta formazione.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="certificazioni" className="section" aria-labelledby="certifications-title">
+      <div className="wrap">
+        <div className="section-head" data-reveal>
+          <h2 id="certifications-title">Certificazioni di qualità</h2>
+          <p className="lead">I certificati sono disponibili in formato PDF.</p>
+        </div>
+        <DocumentCards documents={certificates} />
+      </div>
     </section>
   </InstitutionalPage>;
 }

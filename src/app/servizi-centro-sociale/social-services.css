@@ -1,36 +1,18 @@
-.social-services { padding-block: 64px 80px; }
-.social-service { display: grid; grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); align-items: center; gap: clamp(32px, 6vw, 88px); padding-block: 44px 64px; }
-.social-service + .social-service { border-top: 1px solid #335c8526; }
-.social-service-photo { position: relative; width: 100%; max-width: 500px; padding: 9px; background: var(--brand); border-radius: 24px; box-shadow: 6px 8px 0 var(--brand-dark); }
-.social-service-photo img { display: block; width: 100%; height: auto; border-radius: 16px; }
-.social-service-photo-number { position: absolute; bottom: 25px; left: 25px; display: grid; place-items: center; width: 52px; height: 52px; border-radius: 50%; background: var(--background); color: var(--brand-dark); font-size: 17px; }
-.social-service-copy { min-width: 0; }
-.social-service h2 { font-size: clamp(32px, 3.4vw, 48px); font-weight: 500; line-height: 1.1; letter-spacing: -.05em; margin: 0 0 28px; text-wrap: balance; }
-.social-service ul { list-style: none; margin: 0; padding: 0; }
-.social-service li { position: relative; padding: 15px 0 15px 19px; border-top: 1px solid #335c8526; }
-.social-service li::before { content: ""; position: absolute; top: 23px; left: 0; width: 6px; height: 6px; background: var(--brand); border-radius: 50%; transition: transform .25s; }
-.social-service h3 { margin: 0 0 5px; color: var(--brand-dark); font-size: 16px; font-weight: 500; line-height: 1.4; }
-.social-service li p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.7; }
-.social-service:nth-child(even) .social-service-photo { grid-column: 2; grid-row: 1; justify-self: end; }
-.social-service:nth-child(even) .social-service-copy { grid-column: 1; grid-row: 1; }
-.social-services-gallery { display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 32px 40px; border-radius: 22px; background: var(--brand-dark); color: white; }
-.social-services-gallery > span:first-child { display: grid; gap: 8px; font-size: clamp(23px, 2.5vw, 34px); letter-spacing: -.04em; }
-.social-services-gallery .social-services-gallery-label { font-size: 12px; letter-spacing: 0; color: var(--brand-light); }
-.social-services-gallery-arrow { display: grid; place-items: center; width: 52px; height: 52px; flex: 0 0 52px; border-radius: 50%; color: var(--brand-dark); background: var(--brand-light); transition: transform .25s; }
-.social-services-gallery:focus-visible { outline-color: white; outline-offset: -6px; }
-@media (hover: hover) { .social-service li:hover::before { transform: scale(1.5); } .social-services-gallery:hover .social-services-gallery-arrow { transform: rotate(8deg); } }
-@media (max-width: 900px) { .social-services { padding-block: 32px 56px; } .social-service { gap: 32px; padding-block: 32px 48px; } .social-service h2 { font-size: 33px; } }
+.activity-list { display: grid; gap: 64px; }
+.activity { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 56px; align-items: center; scroll-margin-top: 120px; }
+.activity.is-reversed .activity-photo { order: 2; }
+.activity-photo img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--radius); }
+.activity-copy { padding-left: 24px; border-left: 4px solid var(--azzurro); }
+.activity-copy h2 { margin: 0 0 16px; font-size: clamp(24px, 2.3vw, 32px); line-height: 1.2; }
+.activity-copy p { max-width: 600px; margin: 0; color: var(--ink-2); font-size: 18px; }
+.section-alt .section-head { margin-bottom: 0; }
+
+@media (max-width: 900px) {
+  .activity-list { gap: 48px; }
+  .activity { grid-template-columns: 1fr; gap: 24px; }
+  .activity.is-reversed .activity-photo { order: 0; }
+}
 @media (max-width: 600px) {
-  .social-services { padding-block: 16px 40px; }
-  .social-service { grid-template-columns: 1fr; gap: 26px; padding-block: 24px 36px; }
-  .social-service-photo { width: calc(100% - 7px); max-width: none; border-radius: 20px; padding: 7px; box-shadow: 4px 5px 0 var(--brand-dark); }
-  .social-service-photo img { height: auto; max-height: 330px; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 13px; }
-  .social-service-photo-number { left: 20px; bottom: 20px; width: 42px; height: 42px; font-size: 14px; }
-  .social-service:nth-child(even) .social-service-photo, .social-service:nth-child(even) .social-service-copy { grid-column: auto; grid-row: auto; }
-  .social-service h2 { font-size: clamp(30px, 8vw, 38px); margin-bottom: 22px; }
-  .social-service h3 { font-size: 15px; }
-  .social-service li { padding-block: 13px; }
-  .social-service li::before { top: 21px; }
-  .social-services-gallery { padding: 24px 20px; gap: 14px; border-radius: 20px; }
-  .social-services-gallery-arrow { width: 44px; height: 44px; flex-basis: 44px; }
+  .activity-copy { padding-left: 16px; }
+  .activity-copy p { font-size: 16px; }
 }

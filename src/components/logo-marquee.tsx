@@ -31,8 +31,8 @@ const logos = [
 export function LogoMarquee() {
   return (
     <section className="logo-marquee" aria-labelledby="logo-marquee-title">
-      <div className="logo-marquee-heading">
-        <h2 id="logo-marquee-title">Formazione, certificazioni e programmi</h2>
+      <div className="logo-marquee-heading wrap">
+        <h2 id="logo-marquee-title">Enti, certificazioni e programmi</h2>
       </div>
       <div className="logo-marquee-window">
         <div className="logo-marquee-track">

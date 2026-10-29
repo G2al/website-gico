@@ -1,30 +1,48 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
 import { InstitutionalPage } from "@/components/institutional-page";
-import { socialServices } from "@/lib/social-content";
+import { ArrowLink } from "@/components/arrow-link";
+import { socialCentre } from "@/lib/institutional-content";
+import { originalPage } from "@/lib/navigation";
 import "./social-services.css";
 
 export const metadata: Metadata = {
-  title: "Servizi Centro Sociale | GiCo",
-  description: "Le attività del Centro Sociale Le Perle Preziose: creatività e manualità, educazione, benessere, movimento e socializzazione.",
+  title: "Laboratori e attività – Le Perle Preziose | GiCo",
+  description: "I laboratori e le attività del Centro Sociale Polifunzionale per Disabili Le Perle Preziose: creatività, autonomie quotidiane, benessere, socializzazione e uscite sul territorio.",
 };
 
 export default function SocialServicesPage() {
-  return <InstitutionalPage title="Servizi Centro Sociale" path="/servizi-centro-sociale" parent={{ label: "Centro Sociale", href: "/centro-sociale-polifunzionale" }} sections={socialServices.map(service => ({ id: service.id, label: service.title }))}>
-    <div className="social-services institutional-width">
-      {socialServices.map((service, index) => <section className="social-service" id={service.id} key={service.id} aria-labelledby={`${service.id}-title`}>
-        <div className="social-service-photo" data-reveal>
-          <Image src={service.image} alt={service.alt} width={500} height={510} loading={index === 0 ? "eager" : "lazy"} sizes="(max-width: 600px) calc(100vw - 54px), (max-width: 900px) 50vw, 500px" />
-          <span className="social-service-photo-number" aria-hidden="true">0{index + 1}</span>
-        </div>
-        <div className="social-service-copy" data-reveal data-reveal-delay="80">
-          <p className="institutional-eyebrow">Le Perle Preziose</p>
-          <h2 id={`${service.id}-title`}>{service.title}</h2>
-          <ul>{service.activities.map(activity => <li key={activity.title}><h3>{activity.title}</h3><p>{activity.description}</p></li>)}</ul>
-        </div>
-      </section>)}
-      <a className="social-services-gallery" href="/gallery" data-reveal><span><span className="social-services-gallery-label">Gallery</span><span>Le attività, in immagini.</span></span><span className="social-services-gallery-arrow"><ArrowUpRight size={26} aria-hidden="true" /></span></a>
+  return <InstitutionalPage
+    title="Laboratori e attività"
+    overline="Centro Sociale Polifunzionale per Disabili “Le Perle Preziose”"
+    intro="Le attività quotidiane intrecciano creatività, apprendimento, movimento e occasioni di incontro. Laboratori, esperienze condivise e uscite sul territorio valorizzano le autonomie e rafforzano il legame con la comunità."
+    path="/servizi-centro-sociale"
+    parent={{ label: "Centro Sociale", href: "/centro-sociale-polifunzionale" }}
+    sections={socialCentre.activityAreas.map(area => ({ id: area.id, label: area.title }))}
+  >
+    <div className="section">
+      <div className="wrap activity-list">
+        {socialCentre.activityAreas.map((area, index) => (
+          <section className={`activity${index % 2 ? " is-reversed" : ""}`} id={area.id} key={area.id} aria-labelledby={`${area.id}-title`}>
+            <div className="activity-photo" data-reveal>
+              <Image src={area.image} alt={area.alt} width={560} height={420} loading={index === 0 ? "eager" : "lazy"} sizes="(max-width: 900px) calc(100vw - 48px), 520px" />
+            </div>
+            <div className="activity-copy" data-reveal data-reveal-delay="60">
+              <h2 id={`${area.id}-title`}>{area.title}</h2>
+              <p>{area.text}</p>
+            </div>
+          </section>
+        ))}
+      </div>
     </div>
+    <section className="section section-alt" aria-labelledby="activities-gallery-title">
+      <div className="wrap section-head is-split" data-reveal>
+        <div>
+          <h2 id="activities-gallery-title">Le attività, in fotografia</h2>
+          <p className="lead">Una selezione di momenti dalla vita quotidiana del Centro.</p>
+        </div>
+        <ArrowLink href={originalPage("/gallery/")}>Apri la gallery</ArrowLink>
+      </div>
+    </section>
   </InstitutionalPage>;
 }

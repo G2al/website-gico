@@ -7,7 +7,7 @@ import { publishedNews } from "@/lib/server/news-store";
 export const metadata: Metadata = { title: "News | GiCo", description: "Le notizie di GiCo: attività, esperienze e momenti condivisi. Esplora l’archivio del Centro Sociale e del Centro di Formazione." };
 
 export default function NewsPage() {
-  return <InstitutionalPage title="News" path="/news" parent={null} sections={[{ id: "notizie", label: "Esplora le notizie" }]}><Suspense fallback={<p className="institutional-width">Caricamento delle notizie…</p>}><DatabaseNews /></Suspense></InstitutionalPage>;
+  return <InstitutionalPage title="News" intro="Notizie, attività ed esperienze dal Centro Sociale Le Perle Preziose e dal Centro di Formazione Edoardo Apicella." path="/news" parent={null}><Suspense fallback={<p className="section institutional-width">Caricamento delle notizie…</p>}><DatabaseNews /></Suspense></InstitutionalPage>;
 }
 async function DatabaseNews() {
   const articles = await publishedNews();

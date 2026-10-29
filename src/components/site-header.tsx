@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, ChevronDown, Mail, Menu, Phone, X } from "lucide-react";
-import { useEffect, useRef, useState, type CSSProperties } from "react";
+import { ArrowRight, ChevronDown, Mail, MapPin, Menu, Phone, X } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 import { gicoContact } from "@/lib/gico-contact";
 import { navigation, originalPage } from "@/lib/navigation";
 import { ArrowLink } from "./arrow-link";
@@ -105,6 +105,18 @@ export function SiteHeader({ activePath = "/" }: { activePath?: string }) {
 
   return (
     <>
+      <div className="header-utility">
+        <div className="header-utility-inner">
+          <p><MapPin size={15} aria-hidden="true" />{gicoContact.street}, {gicoContact.city}</p>
+          <ul aria-label="Recapiti e profili social">
+            <li><a href={gicoContact.phoneHref}><Phone size={15} aria-hidden="true" />{gicoContact.phone}</a></li>
+            <li><a href={`mailto:${gicoContact.email}`}><Mail size={15} aria-hidden="true" />{gicoContact.email}</a></li>
+            {gicoContact.socialProfiles.map(profile => (
+              <li key={profile.href}><a className="header-utility-social" href={profile.href} target="_blank" rel="noopener noreferrer" aria-label={`${profile.platform} GiCo ${profile.area} (si apre in una nuova scheda)`} title={`${profile.platform} · ${profile.area}`}><Image src={`/images/${profile.platform === "Instagram" ? "instagram" : "facebook"}-gico.webp`} alt="" width={18} height={18} /></a></li>
+            ))}
+          </ul>
+        </div>
+      </div>
       <header className={headerClasses} ref={headerRef} onFocus={() => setConcealed(false)} onBlur={(event) => {
         if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
           setOpenDropdown(null);
@@ -119,7 +131,7 @@ export function SiteHeader({ activePath = "/" }: { activePath?: string }) {
           <nav id="navigazione-principale" aria-label="Navigazione principale" className={`main-nav${mobileOpen ? " is-open" : ""}`}>
             <ul className="nav-list">
               {navigation.map((item, index) => (
-                <li key={item.label} className="nav-item" style={{ "--item-index": index } as CSSProperties} onPointerEnter={(event) => {
+                <li key={item.label} className="nav-item" onPointerEnter={(event) => {
                   if (event.pointerType !== "mouse" || !supportsDesktopHover()) return;
                   cancelHoverClose();
                   setOpenDropdown(item.children ? index : null);
@@ -148,7 +160,7 @@ export function SiteHeader({ activePath = "/" }: { activePath?: string }) {
                       <div id={`submenu-${index}`} className={`mega-panel${openDropdown === index ? " is-open" : ""}`}>
                         <div className="mega-inner">
                           <a className="mega-feature" href={item.feature.href}>
-                            <Image src={item.feature.image} alt={item.feature.alt} fill sizes="340px" className="mega-feature-image" />
+                            <span className="mega-feature-photo"><Image src={item.feature.image} alt="" fill sizes="300px" /></span>
                             <span className="mega-feature-copy">
                               <strong>{item.feature.title}</strong>
                               <span>{item.feature.description}</span>
@@ -156,14 +168,12 @@ export function SiteHeader({ activePath = "/" }: { activePath?: string }) {
                             </span>
                           </a>
                           <div className="mega-links">
-                            <p className="mega-label" aria-hidden="true">{item.label}</p>
                             <ul className={item.children.length > 3 ? "is-columns" : undefined}>
                               {item.children.map(({ icon: Icon, ...child }) => (
                                 <li key={child.label}>
                                   <a className="mega-link" href={child.href} aria-current={child.href === activePath ? "page" : undefined}>
-                                    <span className="mega-link-icon" aria-hidden="true"><Icon size={20} strokeWidth={1.6} /></span>
+                                    <span className="mega-link-icon" aria-hidden="true"><Icon size={20} strokeWidth={1.7} /></span>
                                     <span className="mega-link-text"><strong>{child.label}</strong><span>{child.description}</span></span>
-                                    <ArrowUpRight className="mega-link-arrow" size={17} aria-hidden="true" />
                                   </a>
                                 </li>
                               ))}
@@ -197,7 +207,6 @@ export function SiteHeader({ activePath = "/" }: { activePath?: string }) {
             }}>{mobileOpen ? <X size={22} /> : <Menu size={22} />}</button>
           </div>
         </div>
-        <span className="header-progress" aria-hidden="true" />
       </header>
       <div className={`nav-backdrop${openDropdown !== null && !mobileOpen ? " is-visible" : ""}`} aria-hidden="true" />
     </>

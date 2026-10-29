@@ -1,0 +1,34 @@
+/* Shared layouts for the Centro di Formazione pages. */
+.offer-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin: 0; padding: 0; list-style: none; }
+.offer-grid.is-two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.offer-grid > li { display: flex; min-width: 0; }
+.offer-grid .card { width: 100%; padding: 28px; }
+.offer-icon { display: grid; place-items: center; width: 44px; height: 44px; margin-bottom: 16px; border-radius: var(--radius); background: var(--azzurro-tint); color: var(--blue); }
+.offer-grid .card h3, .offer-grid .card .offer-title { margin: 0 0 8px; font-size: 19px; line-height: 1.35; }
+.offer-grid .card .text-link { margin-top: auto; padding-top: 12px; }
+.recognitions { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line-strong); }
+.recognitions li { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 8px 32px; padding: 20px 0; border-bottom: 1px solid var(--line-strong); }
+.recognitions strong { color: var(--ink); font-family: var(--font-heading); font-size: 17px; font-weight: 600; }
+.recognitions span { color: var(--ink-2); }
+.recognitions-group + .recognitions-group { margin-top: 40px; }
+.recognitions-group h3 { margin: 0 0 16px; font-size: 18px; }
+.accreditation-box { max-width: 880px; }
+.accreditation-box.is-spaced { margin-top: 32px; }
+.course-group .section-head { margin-bottom: 24px; }
+.accreditation-box .code { display: inline-block; margin-top: 12px; padding: 6px 12px; border-radius: var(--radius-sm); background: var(--azzurro-tint); color: var(--blue-dark); font-family: var(--font-heading); font-weight: 600; }
+.split-section { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: 48px; align-items: start; }
+.split-section > div:first-child h2 { margin: 0 0 12px; font-size: clamp(26px, 2.5vw, 34px); line-height: 1.2; }
+.course-group + .course-group { margin-top: 64px; }
+
+@media (max-width: 1000px) {
+  .offer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 900px) {
+  .split-section { grid-template-columns: 1fr; gap: 28px; }
+}
+@media (max-width: 600px) {
+  .offer-grid, .offer-grid.is-two { grid-template-columns: 1fr; gap: 16px; }
+  .offer-grid .card { padding: 24px 20px; }
+  .recognitions li { grid-template-columns: 1fr; }
+  .course-group + .course-group { margin-top: 48px; }
+}

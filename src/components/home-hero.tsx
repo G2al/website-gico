@@ -1,34 +1,56 @@
 import Image from "next/image";
-import { MousePointer2 } from "lucide-react";
-import "./hero-selection.css";
-import { ArrowLink } from "./arrow-link";
 import { originalPage } from "@/lib/navigation";
+import { ArrowLink } from "./arrow-link";
+import "./home-hero.css";
 
-const photographs = [
-  { src: "/images/hero-gico.webp", alt: "Mani unite, simbolo di collaborazione e inclusione", position: "center", label: "Inclusione" },
-  { src: "/images/hero-formazione.webp", alt: "Aula del Centro di Formazione GiCo", position: "center 58%", label: "Formazione" },
-  { src: "/images/hero-centro-sociale.webp", alt: "Giardino del Centro Sociale Polifunzionale Le Perle Preziose", position: "center", label: "Centro Sociale" },
+const centres = [
+  {
+    id: "perle",
+    overline: "Centro Sociale Polifunzionale per Disabili",
+    name: "Le Perle Preziose",
+    description: "Accoglienza, assistenza, socializzazione e partecipazione delle persone con disabilità, dal 2013.",
+    image: "/images/chi-siamo-gico.webp",
+    alt: "Ospiti e operatori del Centro Sociale Le Perle Preziose durante le attività estive",
+    href: originalPage("/centro-sociale-polifunzionale/"),
+    secondary: { label: "Laboratori e attività", href: originalPage("/servizi-centro-sociale/") },
+  },
+  {
+    id: "apicella",
+    overline: "Centro Studi, Orientamento e Formazione Professionale",
+    name: "Edoardo Apicella",
+    description: "Orientamento, formazione professionale, certificazioni e accompagnamento negli studi, dal 2002.",
+    image: "/images/hero-formazione.webp",
+    alt: "Un’aula del Centro di Formazione Edoardo Apicella",
+    href: originalPage("/centro-di-formazione/"),
+    secondary: { label: "Richiedi informazioni", href: originalPage("/richiedi-informazioni/") },
+  },
 ];
 
 export function HomeHero() {
   return (
     <section className="home-hero" aria-labelledby="hero-title">
-      <div className="hero-copy">
-        <p className="hero-eyebrow">Insieme, diamo valore alle persone</p>
-        <h1 id="hero-title">Ogni persona merita<br /><span className="gico-selection"><span className="gico-selection-fill" aria-hidden="true" /><span className="gico-selection-text">un futuro</span><span className="gico-selection-end" aria-hidden="true" /><MousePointer2 className="gico-selection-cursor" size={25} strokeWidth={1.6} aria-hidden="true" /></span> da costruire.</h1>
-        <p className="hero-description">Accogliamo le persone, valorizziamo le capacità.<br className="desktop-break" /> Con GiCo, inclusione sociale e formazione diventano nuove opportunità.</p>
-        <div className="hero-actions">
-          <ArrowLink href={originalPage("/gico/")}>Scopri GiCo</ArrowLink>
-          <ArrowLink href={originalPage("/centro-di-formazione/")} secondary>La nostra formazione</ArrowLink>
+      <div className="wrap">
+        <div className="hero-intro">
+          <p className="kicker">GiCo Società Cooperativa Sociale – Impresa Sociale</p>
+          <h1 id="hero-title">Due realtà, una stessa missione: la centralità della persona.</h1>
+          <p className="lead">A Trentola Ducenta, nel complesso della Piccola Casa della Divina Provvidenza – Cottolengo, accogliamo le persone con disabilità e accompagniamo chi studia, lavora o cerca lavoro.</p>
         </div>
-      </div>
-      <div className="hero-photo-frame">
-        <div className="hero-photo-grid">
-          {photographs.map((photo, index) => (
-            <div className="hero-photo" key={photo.src}>
-              <Image src={photo.src} alt={photo.alt} fill sizes="(max-width: 600px) 90vw, (max-width: 1199px) 30vw, 390px" loading={index === 0 ? "eager" : "lazy"} fetchPriority={index === 0 ? "high" : "auto"} style={{ objectPosition: photo.position }} />
-              <span className="hero-photo-label" aria-hidden="true">{photo.label}</span>
-            </div>
+        <div className="hero-centres">
+          {centres.map((centre, index) => (
+            <article className={`hero-centre is-${centre.id}`} key={centre.id} aria-labelledby={`hero-centre-${centre.id}`}>
+              <div className="hero-centre-photo">
+                <Image src={centre.image} alt={centre.alt} fill loading="eager" fetchPriority={index === 0 ? "high" : "auto"} sizes={index === 0 ? "(max-width: 900px) calc(100vw - 48px), 680px" : "(max-width: 900px) calc(100vw - 48px), 500px"} />
+              </div>
+              <div className="hero-centre-body">
+                <p className="kicker">{centre.overline}</p>
+                <h2 id={`hero-centre-${centre.id}`}>{centre.name}</h2>
+                <p>{centre.description}</p>
+                <div className="actions">
+                  <ArrowLink href={centre.href}>Scopri il Centro</ArrowLink>
+                  <a className="text-link" href={centre.secondary.href}>{centre.secondary.label}</a>
+                </div>
+              </div>
+            </article>
           ))}
         </div>
       </div>

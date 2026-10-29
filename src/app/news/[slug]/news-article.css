@@ -1,7 +1,7 @@
-.news-article { padding-block: 40px 64px; max-width: 1000px; }
-.news-article > time { display: block; color: var(--muted); font-size: 13px; margin-bottom: 24px; }
-.news-article-cover { display: block; width: 100%; height: auto; border-radius: 24px; }
-.news-article-copy { max-width: 760px; margin: 32px auto; font-size: 16px; line-height: 1.9; color: var(--muted); overflow-wrap: anywhere; }
-.news-article-copy p { white-space: pre-line; }
-.news-article-back { display: inline-flex; align-items: center; min-height: 44px; margin-top: 24px; color: var(--brand); font-size: 13px; }
-@media (max-width: 600px) { .news-article { padding-block: 32px 40px; } .news-article-cover { border-radius: 18px; } .news-article-copy { font-size: 14px; line-height: 1.8; } }
+.news-article { max-width: 880px; }
+.news-article > time { display: block; margin-bottom: 24px; color: var(--ink-2); font-size: 16px; }
+.news-article-cover { display: block; width: 100%; height: auto; border-radius: var(--radius); }
+.news-article-copy { max-width: var(--measure); margin: 40px 0; color: var(--ink-2); font-size: 18px; line-height: 1.75; overflow-wrap: anywhere; }
+.news-article-copy p { margin: 0; white-space: pre-line; }
+.news-article-copy p + p { margin-top: 20px; }
+@media (max-width: 600px) { .news-article-copy { font-size: 16px; } }

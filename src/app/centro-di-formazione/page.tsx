@@ -1,29 +1,77 @@
 import type { Metadata } from "next";
-import { InstitutionalPage, InstitutionalPrinciples, InstitutionalStory } from "@/components/institutional-page";
+import { Landmark } from "lucide-react";
+import { InstitutionalPage, InstitutionalStory } from "@/components/institutional-page";
+import { navigation, originalPage } from "@/lib/navigation";
+import { trainingCentre, trainingRecognitions } from "@/lib/institutional-content";
+import "@/components/training-pages.css";
 
 export const metadata: Metadata = {
-  title: "Centro di Formazione Edoardo Apicella | GiCo",
-  description: "Il Centro Studi, Orientamento e Formazione Professionale Edoardo Apicella di GiCo: corsi, sviluppo professionale, accompagnamento universitario e certificazioni.",
+  title: "Edoardo Apicella – Centro Studi, Orientamento e Formazione Professionale | GiCo",
+  description: "Il Centro Studi, Orientamento e Formazione Professionale Edoardo Apicella di GiCo: formazione professionale finanziata e autofinanziata, formazione universitaria, certificazioni informatiche e linguistiche.",
 };
 
-const courses = [
-  { title: "Corsi Professionali", description: "Offriamo formazione specifica in vari settori, garantendo una preparazione pratica e teorica completa." },
-  { title: "Accompagnamento Universitario", description: "Supportiamo gli studenti nel percorso accademico, facilitando l’accesso a corsi di laurea e master." },
-  { title: "Certificazioni Informatiche", description: "Siamo un centro autorizzato per il rilascio di certificazioni informatiche riconosciute, essenziali per il mondo del lavoro tecnologico e digitale." },
-];
+const areas = navigation.find(item => item.label === "Centro di Formazione")?.children ?? [];
 
 export default function TrainingCentrePage() {
-  return <InstitutionalPage title="Centro di Formazione" path="/centro-di-formazione" sections={[{ id: "il-centro", label: "Il nostro centro" }, { id: "educazione", label: "Educazione e sviluppo" }, { id: "corsi", label: "Corsi e certificazioni" }, { id: "offerta", label: "Offerta formativa" }]}>
-    <InstitutionalStory id="il-centro" title="Il Nostro Centro di Formazione" paragraphs={[
-      "Oltre al nostro costante impegno nell’ambito sociale, la GiCo opera nel settore della formazione fin dal 2002 con il suo Centro Studi, Orientamento e Formazione Professionale “Edoardo Apicella”, un’istituzione educativa dedicata allo sviluppo professionale e personale.",
-      "Il nostro centro offre un’ampia gamma di corsi di formazione professionale, servizi di accompagnamento per percorsi universitari, e certificazioni in ambito informatico, rivolti sia a giovani che a professionisti che desiderano aggiornare le proprie competenze.",
-    ]} image={{ src: "/images/pagina-centro-di-formazione-2.webp", alt: "Aula del Centro di Formazione GiCo Edoardo Apicella" }} />
-    <InstitutionalStory id="educazione" title="Educazione e Sviluppo Professionale" paragraphs={[
-      "Il Centro di Formazione GiCo è un luogo di crescita e apprendimento, dove la passione per la conoscenza si fonde con la pratica professionale. Attraverso un approccio didattico innovativo, forniamo strumenti e conoscenze necessarie per affrontare le sfide del mercato del lavoro di oggi e di domani.",
-    ]} image={{ src: "/images/pagina-centro-di-formazione-1.webp", alt: "Aula informatica del Centro di Formazione GiCo" }} reverse dark />
-    <InstitutionalPrinciples id="corsi" title="Corsi e Certificazioni" items={courses} />
-    <InstitutionalStory id="offerta" title="Un'Offerta Formativa Completa" paragraphs={[
-      "Crediamo fermamente nel valore dell’istruzione continua come mezzo di emancipazione individuale e progresso collettivo. Per questo, il nostro centro si dedica a creare percorsi formativi adatti ad ogni esigenza, con docenti qualificati e un metodo di insegnamento dinamico ed efficace",
-    ]} image={{ src: "/images/pagina-centro-di-formazione-3.webp", alt: "Studenti insieme, immagine dell’offerta formativa pubblicata da GiCo" }} />
+  return <InstitutionalPage
+    title="Edoardo Apicella"
+    overline="Centro Studi, Orientamento e Formazione Professionale"
+    intro={trainingCentre.presentation[0]}
+    path="/centro-di-formazione"
+    parent={null}
+    sections={[{ id: "il-centro", label: "Il Centro" }, { id: "offerta", label: "L’offerta formativa" }, { id: "accreditamento", label: "Accreditamento e centri autorizzati" }]}
+  >
+    <InstitutionalStory id="il-centro" title="Orientamento, formazione e aggiornamento" paragraphs={trainingCentre.presentation.slice(1)} image={{ src: "/images/pagina-centro-di-formazione-2.webp", alt: "Un’aula del Centro di Formazione Edoardo Apicella" }} />
+
+    <section id="offerta" className="section section-alt" aria-labelledby="offerta-title">
+      <div className="wrap">
+        <div className="section-head" data-reveal>
+          <h2 id="offerta-title">L’offerta formativa</h2>
+          <p className="lead">Percorsi per studenti, lavoratori e persone in cerca di occupazione.</p>
+        </div>
+        <ul className="offer-grid">
+          {areas.map(({ icon: Icon, ...area }, index) => (
+            <li key={area.href} data-reveal data-reveal-delay={index % 3 * 60}>
+              <a className="card is-accent" href={area.href}>
+                <span className="offer-icon" aria-hidden="true"><Icon size={22} strokeWidth={1.7} /></span>
+                <h3>{area.label}</h3>
+                <p>{area.description}</p>
+              </a>
+            </li>
+          ))}
+          <li data-reveal data-reveal-delay="120">
+            <a className="card is-accent" href={originalPage("/par-gol/")}>
+              <span className="offer-icon" aria-hidden="true"><Landmark size={22} strokeWidth={1.7} /></span>
+              <h3>PAR GOL</h3>
+              <p>Programma Garanzia di Occupabilità dei Lavoratori: catalogo dell’offerta formativa ed enti convenzionati.</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="accreditamento" className="section" aria-labelledby="accreditamento-title">
+      <div className="wrap split-section">
+        <div data-reveal>
+          <h2 id="accreditamento-title">Accreditamento e centri autorizzati</h2>
+          <p className="lead">Il Centro è accreditato dalla Regione Campania per la formazione professionale.</p>
+        </div>
+        <div data-reveal data-reveal-delay="60">
+          <div className="info-box accreditation-box">
+            <h3>{trainingCentre.accreditation.title}</h3>
+            <p>{trainingCentre.accreditation.text}</p>
+            <p className="code">Codice organismo: {trainingCentre.accreditation.code}</p>
+          </div>
+          <div className="recognitions-group">
+            <h3>Centri autorizzati</h3>
+            <ul className="recognitions">{trainingRecognitions.centres.map(item => <li key={item.name}><strong>{item.name}</strong><span>{item.text}</span></li>)}</ul>
+          </div>
+          <div className="recognitions-group">
+            <h3>Convenzioni</h3>
+            <ul className="recognitions">{trainingRecognitions.agreements.map(item => <li key={item.name}><strong>{item.name}</strong><span>{item.text}</span></li>)}</ul>
+          </div>
+        </div>
+      </div>
+    </section>
   </InstitutionalPage>;
 }

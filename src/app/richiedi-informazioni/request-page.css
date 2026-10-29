@@ -1,0 +1,17 @@
+.request-layout { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 0.9fr); gap: 48px; align-items: start; }
+.request-card { padding: 40px; border: 1px solid var(--line); border-top: 4px solid var(--azzurro); border-radius: var(--radius); background: var(--surface); }
+.request-card h2, .request-aside h2 { margin: 0 0 24px; font-size: 22px; }
+.request-aside ul { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+.request-aside li { display: flex; align-items: flex-start; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.request-aside li > svg { flex-shrink: 0; margin-top: 3px; color: var(--blue); }
+.request-aside li > span { display: flex; flex-direction: column; min-width: 0; overflow-wrap: anywhere; }
+.request-aside small { color: var(--ink-2); font-size: 14px; }
+.request-aside a { color: var(--blue); font-weight: 600; }
+.request-aside a:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+@media (max-width: 900px) {
+  .request-layout { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .request-card { padding: 24px 20px; }
+}

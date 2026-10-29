@@ -8,9 +8,9 @@ export function ArrowLink({ href, children, secondary = false, className = "" }:
   className?: string;
 }) {
   return (
-    <a href={href} className={`arrow-link ${secondary ? "arrow-link-secondary" : ""} ${className}`}>
+    <a href={href} className={`arrow-link${secondary ? " arrow-link-secondary" : ""}${className ? ` ${className}` : ""}`}>
       <span>{children}</span>
-      <span className="arrow-link-icon" aria-hidden="true"><ArrowRight size={18} strokeWidth={1.75} /></span>
+      <span className="arrow-link-icon" aria-hidden="true"><ArrowRight size={18} strokeWidth={2} /></span>
     </a>
   );
 }

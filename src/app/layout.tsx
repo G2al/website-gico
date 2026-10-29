@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Manrope, Source_Sans_3 } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const manrope = Manrope({
+  variable: "--font-manrope",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const sourceSans = Source_Sans_3({
+  variable: "--font-source-sans",
   subsets: ["latin"],
 });
 
@@ -19,14 +19,15 @@ export const metadata: Metadata = {
     apple: "/images/logo-gico-coop.png",
   },
   title: "GiCo | Cooperativa Sociale e Formazione",
-  description: "GiCo Cooperativa Sociale: inclusione, accoglienza e formazione professionale. Scopri il Centro Sociale Le Perle Preziose e il Centro di Formazione Edoardo Apicella.",
+  description: "GiCo Società Cooperativa Sociale: il Centro Sociale Polifunzionale per Disabili Le Perle Preziose e il Centro Studi, Orientamento e Formazione Professionale Edoardo Apicella a Trentola Ducenta.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="it"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      data-scroll-behavior="smooth"
+      className={`${manrope.variable} ${sourceSans.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>

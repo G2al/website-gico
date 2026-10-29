@@ -1,95 +1,12 @@
-/* Scoped to the GiCo detail page; shared home styles stay unchanged. */
-.gico-page-hero, .gico-page-section { width: min(100% - 112px, 1328px); margin-inline: auto; }
-.gico-page-section { scroll-margin-top: 24px; }
-.gico-breadcrumb { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 28px 0 22px; color: var(--muted); font-size: 12px; }
-.gico-breadcrumb a { display: inline-flex; align-items: center; min-height: 30px; }
-.gico-breadcrumb a:hover { color: var(--brand); text-decoration: underline; }
-.gico-breadcrumb [aria-current] { color: var(--brand-dark); }
-.gico-cover { position: relative; width: 100%; min-height: 330px; aspect-ratio: 3.8; border-radius: 24px; overflow: hidden; background: var(--brand-dark); isolation: isolate; }
-.gico-cover > img { object-fit: cover; transition: transform 1s cubic-bezier(.22,1,.36,1); }
-.gico-cover:hover > img { transform: scale(1.025); }
-.gico-cover::after { content: ""; position: absolute; inset: 0; z-index: 0; background: linear-gradient(90deg, #2345657a, transparent 75%); pointer-events: none; }
-.gico-cover-title { position: relative; z-index: 1; padding: 45px 56px; color: white; }
-.gico-cover-title p { margin: 0 0 14px; font-size: 12px; letter-spacing: .08em; }
-.gico-cover-title h1 { font-size: clamp(85px, 9vw, 135px); letter-spacing: -.07em; line-height: 1; font-weight: 500; margin: 0; }
-.gico-cover-title h1 span { color: var(--brand-light); }
-.gico-cover-down { position: absolute; bottom: 28px; left: 56px; z-index: 1; display: grid; place-items: center; width: 46px; height: 46px; border: 1px solid #ffffff6b; border-radius: 50%; color: white; transition: background .2s, transform .2s; }
-.gico-cover-down:hover { background: #ffffff24; transform: translateY(3px); }
-.gico-cover-down:focus-visible { outline-color: white; }
-.gico-section-nav { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; padding-top: 24px; }
-.gico-section-nav a { display: inline-flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 44px; padding: 8px 18px; border: 1px solid #335c8526; border-radius: 100px; color: var(--brand-dark); font-size: 13px; transition: background .2s; }
-.gico-section-nav a:hover { background: var(--brand-light); }
-.gico-page-eyebrow { display: inline-block; margin: 0 0 20px; padding: 6px 12px; border-radius: 6px; background: var(--brand-light); color: var(--brand-dark); font-size: 11px; font-weight: 500; }
-.gico-page-section h2 { margin: 0 0 28px; font-size: clamp(36px, 4.2vw, 58px); line-height: 1.08; font-weight: 500; letter-spacing: -.055em; text-wrap: balance; }
-.gico-introduction { display: grid; grid-template-columns: 1fr 1.12fr; gap: clamp(32px, 6vw, 88px); align-items: center; padding-block: 88px; }
-.gico-introduction-copy { grid-column: 2; grid-row: 1; }
-.gico-introduction-copy > p:not(.gico-page-eyebrow) { margin: 0; font-size: 15px; line-height: 1.85; color: var(--muted); text-wrap: pretty; }
-.gico-introduction-copy > p:not(.gico-page-eyebrow) + p { margin-top: 22px; }
-.gico-introduction-photo { grid-column: 1; grid-row: 1; padding: 10px; border-radius: 24px; background: var(--brand); box-shadow: 7px 8px 0 var(--brand-dark); transform: rotate(-2deg); }
-.gico-introduction-photo img { display: block; width: 100%; height: auto; border-radius: 15px; }
-.gico-identity { position: relative; isolation: isolate; overflow: hidden; display: grid; grid-template-columns: .8fr 1.2fr; gap: 36px 70px; padding: 64px; border-radius: 28px; background: var(--brand-dark); color: white; }
-.gico-identity-heading, .gico-identity-copy, .gico-identity-statement { position: relative; z-index: 1; }
-.gico-identity-heading h2 { margin-bottom: 0; }
-.gico-identity-copy { margin: 0; font-size: 15px; line-height: 1.85; color: #e0ebf5; text-wrap: pretty; }
-.gico-identity-statement { grid-column: 1 / -1; margin: 8px 0 0; padding: 32px 0 0; border-top: 1px solid #c9deef3d; font-size: clamp(21px, 2.2vw, 30px); line-height: 1.5; letter-spacing: -.025em; text-wrap: pretty; }
-.gico-identity-orbits { position: absolute; width: 580px; height: 580px; top: -200px; left: -270px; z-index: 0; pointer-events: none; }
-.gico-identity-orbits span { position: absolute; width: 100%; height: 100%; border: 1px solid #c9deef24; border-radius: 50%; animation: gico-orbit 12s ease-in-out infinite alternate; }
-.gico-identity-orbits span + span { left: 110px; top: 70px; animation-delay: -6s; }
-@keyframes gico-orbit { to { transform: translate(24px, 20px) scale(1.06); } }
-.gico-principles { padding-block: 88px 96px; }
-.gico-principles-heading { text-align: center; margin-bottom: 42px; }
-.gico-principles-heading h2 { margin: 0; }
-.gico-principles-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 36px; }
-.gico-principles-list li { position: relative; padding: 30px 0; border-top: 1px solid #335c852e; }
-.gico-principles-list li::before { content: ""; position: absolute; top: -1px; left: 0; height: 2px; width: 100%; transform: scaleX(0); transform-origin: left; background: var(--brand); transition: transform .45s ease; }
-.gico-principles-list li:hover::before { transform: scaleX(1); }
-.gico-principle-number { display: grid; place-items: center; width: 44px; height: 44px; background: var(--brand-light); border-radius: 50%; color: var(--brand-dark); font-size: 12px; font-variant-numeric: tabular-nums; margin-bottom: 20px; transition: color .3s, background .3s; }
-.gico-principles-list li:hover .gico-principle-number { background: var(--brand); color: white; }
-.gico-principles-list h3 { margin: 0 0 12px; color: var(--brand-dark); font-size: 23px; line-height: 1.2; font-weight: 500; letter-spacing: -.035em; }
-.gico-principles-list p { margin: 0; font-size: 14px; color: var(--muted); line-height: 1.75; max-width: 310px; }
+.identity { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 56px; align-items: start; }
+.identity h2 { margin: 0 0 20px; font-size: clamp(26px, 2.5vw, 34px); }
+.identity-statement { margin: 0; padding: 32px; border-left: 4px solid var(--azzurro); background: var(--surface); }
+.identity-statement p { margin: 0; color: var(--ink); font-family: var(--font-heading); font-size: 21px; font-weight: 500; line-height: 1.5; }
+
 @media (max-width: 900px) {
-  .gico-page-hero, .gico-page-section { width: calc(100% - 64px); }
-  .gico-cover { min-height: 285px; }
-  .gico-cover-title { padding: 36px; }
-  .gico-cover-down { left: 36px; }
-  .gico-introduction { grid-template-columns: 1fr; gap: 32px; padding-block: 60px; }
-  .gico-introduction-copy { grid-column: 1; }
-  .gico-introduction-photo { grid-row: 2; max-width: 420px; width: 100%; margin-inline: auto; }
-  .gico-identity { padding: 40px; grid-template-columns: 1fr; gap: 26px; }
-  .gico-identity-heading h2 br { display: none; }
-  .gico-identity-statement { margin-top: 0; padding-top: 26px; }
-  .gico-principles { padding-block: 60px; }
-  .gico-principles-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 28px; }
+  .identity { grid-template-columns: 1fr; gap: 32px; }
 }
 @media (max-width: 600px) {
-  .gico-page-hero, .gico-page-section { width: calc(100% - 40px); }
-  .gico-breadcrumb { margin-block: 16px; font-size: 11px; gap: 8px; }
-  .gico-cover { min-height: 240px; border-radius: 20px; }
-  .gico-cover > img { object-position: 60% center; }
-  .gico-cover::after { background: linear-gradient(90deg, #234565d9, #23456524); }
-  .gico-cover-title { padding: 30px 26px; }
-  .gico-cover-title p { font-size: 11px; }
-  .gico-cover-title h1 { font-size: 80px; }
-  .gico-cover-down { left: 26px; bottom: 24px; }
-  .gico-section-nav { gap: 4px; padding-top: 12px; justify-content: flex-start; }
-  .gico-section-nav a { font-size: 11px; padding: 8px 10px; gap: 8px; border: 0; }
-  .gico-section-nav a:first-child { padding-left: 0; }
-  .gico-page-section h2 { font-size: clamp(33px, 8.4vw, 44px); margin-bottom: 22px; }
-  .gico-page-eyebrow { margin-bottom: 16px; }
-  .gico-introduction { padding-block: 42px 48px; gap: 28px; }
-  .gico-introduction-copy > p:not(.gico-page-eyebrow) { font-size: 14px; line-height: 1.8; }
-  .gico-introduction-copy > p:not(.gico-page-eyebrow) + p { margin-top: 18px; }
-  .gico-introduction-photo { width: calc(100% - 16px); max-width: 350px; padding: 7px; border-radius: 18px; box-shadow: 5px 6px 0 var(--brand-dark); }
-  .gico-introduction-photo img { border-radius: 11px; aspect-ratio: 1.18; object-fit: cover; }
-  .gico-identity { padding: 28px 22px; border-radius: 22px; gap: 22px; }
-  .gico-identity-heading h2 { margin-bottom: 0; }
-  .gico-identity-copy { font-size: 14px; line-height: 1.8; }
-  .gico-identity-statement { font-size: 21px; line-height: 1.5; padding-top: 22px; }
-  .gico-principles { padding-block: 48px; }
-  .gico-principles-heading { text-align: left; margin-bottom: 26px; }
-  .gico-principles-list { grid-template-columns: 1fr; }
-  .gico-principles-list li { display: grid; grid-template-columns: 38px minmax(0, 1fr); gap: 16px; padding-block: 22px; }
-  .gico-principle-number { width: 38px; height: 38px; font-size: 11px; margin: 0; }
-  .gico-principles-list h3 { font-size: 21px; margin-bottom: 8px; }
-  .gico-principles-list p { font-size: 14px; line-height: 1.65; max-width: none; }
+  .identity-statement { padding: 24px 20px; }
+  .identity-statement p { font-size: 18px; }
 }

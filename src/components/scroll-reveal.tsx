@@ -18,10 +18,10 @@ export function ScrollReveal({ children }: { children: ReactNode }) {
         if (preference.matches) return;
         const element = entry.target as HTMLElement;
         const animation = element.animate([
-          { opacity: 0, transform: "translate3d(0, 26px, 0)" },
+          { opacity: 0, transform: "translate3d(0, 16px, 0)" },
           { opacity: 1, transform: "translate3d(0, 0, 0)" },
         ], {
-          duration: 700,
+          duration: 500,
           delay: Number(element.dataset.revealDelay ?? 0),
           easing: "cubic-bezier(0.22, 1, 0.36, 1)",
           fill: "both",

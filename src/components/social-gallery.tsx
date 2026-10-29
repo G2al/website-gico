@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowLeft, ArrowRight, ArrowUpRight, Expand, X } from "lucide-react";
+import { ArrowLeft, ArrowRight, Expand, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import "./social-gallery.css";
 
@@ -30,15 +30,15 @@ export function SocialGallery({ photos }: { photos: readonly GalleryPhoto[] }) {
 
   const move = (direction: number) => setActive(index => index === null ? null : (index + direction + photos.length) % photos.length);
 
-  return <section id="fotografie" className="social-gallery institutional-width" aria-labelledby="social-gallery-title">
-    <div className="social-gallery-heading" data-reveal><div><p className="institutional-eyebrow">Le Perle Preziose</p><h2 id="social-gallery-title">Il centro, da vicino.</h2></div><p>{photos.length} fotografie<span>Apri una foto per esplorare la gallery.</span></p></div>
+  return <section id="fotografie" className="section social-gallery" aria-labelledby="social-gallery-title"><div className="wrap">
+    <div className="section-head is-split" data-reveal><div><h2 id="social-gallery-title">Fotografie del Centro</h2><p className="lead">{photos.length} fotografie. Seleziona una foto per ingrandirla e scorrere la gallery.</p></div></div>
     <div className="social-gallery-grid">
       {photos.map((item, index) => <a className="social-gallery-tile" href={item.src} key={item.src} data-reveal data-reveal-delay={index % 3 * 60} aria-label={`Ingrandisci foto ${index + 1}: ${item.alt}`} onClick={event => { if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return; event.preventDefault(); triggerRef.current = event.currentTarget; setActive(index); }}>
         <Image src={item.src} alt={item.alt} width={item.width} height={item.height} loading={index < 3 ? "eager" : "lazy"} sizes={index === 0 ? "(max-width: 900px) 100vw, 66vw" : "(max-width: 900px) 50vw, 33vw"} />
-        <span className="social-gallery-tile-number" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span><span className="social-gallery-expand" aria-hidden="true"><Expand size={19} /></span>
+        <span className="social-gallery-expand" aria-hidden="true"><Expand size={18} /></span>
       </a>)}
     </div>
-    <a className="social-gallery-services" href="/servizi-centro-sociale">Scopri i servizi del centro<ArrowUpRight size={18} aria-hidden="true" /></a>
+    <p className="social-gallery-services"><a className="text-link" href="/servizi-centro-sociale">Laboratori e attività del Centro</a></p>
     <dialog className="social-gallery-dialog" ref={dialogRef} aria-labelledby="social-gallery-dialog-title" aria-describedby="social-gallery-dialog-caption" onCancel={() => setActive(null)} onClick={event => { if (event.target === event.currentTarget) setActive(null); }} onKeyDown={event => { if (event.key === "Escape") { event.preventDefault(); setActive(null); } else if (event.key === "ArrowRight") { event.preventDefault(); move(1); } else if (event.key === "ArrowLeft") { event.preventDefault(); move(-1); } }}>
       {photo && <div className="social-gallery-viewer">
         <div className="social-gallery-toolbar"><h2 id="social-gallery-dialog-title">Gallery <span>Le Perle Preziose</span></h2><button type="button" autoFocus onClick={() => setActive(null)} aria-label="Chiudi la fotografia"><X size={23} aria-hidden="true" /></button></div>
@@ -48,5 +48,5 @@ export function SocialGallery({ photos }: { photos: readonly GalleryPhoto[] }) {
         <div className="social-gallery-viewer-footer"><p id="social-gallery-dialog-caption" aria-live="polite" aria-atomic="true">{photo.alt}<span>Foto {active! + 1} di {photos.length}</span></p><div className="social-gallery-viewer-controls"><button type="button" onClick={() => move(-1)} aria-label="Fotografia precedente"><ArrowLeft size={21} aria-hidden="true" /></button><button type="button" onClick={() => move(1)} aria-label="Fotografia successiva"><ArrowRight size={21} aria-hidden="true" /></button></div></div>
       </div>}
     </dialog>
-  </section>;
+  </div></section>;
 }

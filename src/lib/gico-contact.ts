@@ -8,15 +8,14 @@ export const gicoContact = {
   whatsapp: "+39 392.9558866",
   whatsappHref: "https://wa.me/393929558866",
   email: "gico@gicocoop.it",
-  trainingEmail: "ecppegaso@gicocoop.it",
+  trainingEmail: "formazione@gicocoop.it",
   pec: "gicoscarl@legalmail.it",
   postalCode: "81038",
   departmentEmails: [
     { label: "info e varie", address: "gico@gicocoop.it" },
     { label: "centro sociale", address: "centrosociale@gicocoop.it" },
     { label: "direzione", address: "direttore@gicocoop.it" },
-    { label: "corsi di formazione e certificazioni", address: "formazione@gicocoop.it" },
-    { label: "università", address: "ecppegaso@gicocoop.it" },
+    { label: "corsi di formazione, certificazioni e formazione universitaria", address: "formazione@gicocoop.it" },
   ],
   pecAddresses: ["assistenza.gicocoop@legalmail.it", "gicoscarl@legalmail.it"],
   socialProfiles: [

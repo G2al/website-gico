@@ -1,0 +1,10 @@
+.reports { display: grid; gap: 16px; max-width: 880px; margin: 0; padding: 0; list-style: none; }
+.report { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 24px; padding: 24px 28px; border: 1px solid var(--line); border-left: 4px solid var(--azzurro); border-radius: var(--radius); background: var(--surface); }
+.report-icon { display: grid; place-items: center; width: 56px; height: 56px; border-radius: var(--radius); background: var(--azzurro-tint); color: var(--blue); }
+.report h2 { margin: 0; font-size: 22px; }
+.report p { margin: 4px 0 0; color: var(--ink-2); }
+
+@media (max-width: 600px) {
+  .report { grid-template-columns: 1fr; gap: 16px; padding: 24px 20px; }
+  .report .arrow-link { width: 100%; }
+}

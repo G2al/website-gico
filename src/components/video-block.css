@@ -1,0 +1,7 @@
+.video-block { margin: 0; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); overflow: hidden; }
+.video-block video, .video-block-poster { display: block; width: 100%; aspect-ratio: 16 / 9; background: var(--blue-dark); }
+.video-block-poster { position: relative; }
+.video-block-poster img { object-fit: cover; }
+.video-block figcaption { display: flex; align-items: flex-start; gap: 10px; padding: 16px 20px; border-top: 1px dashed var(--line-strong); color: var(--ink-2); font-size: 15px; line-height: 1.5; }
+.video-block figcaption svg { flex-shrink: 0; margin-top: 2px; color: var(--blue); }
+.video-block figcaption strong { color: var(--ink); }

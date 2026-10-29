@@ -1,62 +1,52 @@
-import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
-import { trainingLinks } from "@/lib/navigation";
+import { ArrowRight } from "lucide-react";
+import { navigation, originalPage } from "@/lib/navigation";
+import { coursePath, courses } from "@/lib/courses";
+import { trainingCentre } from "@/lib/institutional-content";
+import { ArrowLink } from "./arrow-link";
 import { ScrollReveal } from "./scroll-reveal";
-import { MobileCarousel } from "./mobile-carousel";
 import "./training-section.css";
 
-const trainingAreas = [
-  {
-    ...trainingLinks[0],
-    image: "/images/formazione-universitaria.webp",
-    description: "Orientamento e supporto per accompagnarti nel tuo percorso accademico.",
-  },
-  {
-    ...trainingLinks[1],
-    image: "/images/formazione-professionale.webp",
-    description: "Percorsi per acquisire competenze e qualifiche per il mondo del lavoro.",
-  },
-  {
-    ...trainingLinks[2],
-    image: "/images/certificazioni-informatiche.webp",
-    description: "Valorizza le tue competenze digitali con le certificazioni EIPASS e PEKIT.",
-  },
-  {
-    ...trainingLinks[3],
-    image: "/images/certificazioni-linguistiche.webp",
-    description: "Certificazioni di inglese e tedesco per dare valore alle tue competenze.",
-  },
-];
-
-function TrainingCard({ area, titleId }: { area: typeof trainingAreas[number]; titleId: string }) {
-  return (
-    <a href={area.href} className="training-card" aria-labelledby={titleId}>
-      <div className="training-card-photo"><Image src={area.image} alt="" fill sizes="(max-width: 600px) calc(100vw - 56px), (max-width: 1100px) 45vw, 320px" /></div>
-      <div className="training-card-body">
-        <div className="training-card-heading"><h3 id={titleId}>{area.label}</h3><span className="training-card-arrow" aria-hidden="true"><ArrowUpRight size={20} strokeWidth={1.6} /></span></div>
-        <p>{area.description}</p>
-      </div>
-    </a>
-  );
-}
+const trainingMenu = navigation.find(item => item.label === "Centro di Formazione");
+const areas = trainingMenu?.children ?? [];
+const highlighted = courses.filter(course => course.highlight);
 
 export function TrainingSection() {
   return (
-    <section id="centro-di-formazione" className="training-section" aria-labelledby="training-title">
+    <section id="centro-di-formazione" className="section training-section" aria-labelledby="training-title">
       <ScrollReveal>
-        <div className="training-heading" data-reveal>
-          <p className="training-eyebrow">Centro Edoardo Apicella</p>
-          <h2 id="training-title">Centro di Formazione</h2>
-          <p className="training-description">La conoscenza incontra la pratica, le competenze diventano opportunità.<br className="desktop-break" /> Percorsi di studio e formazione per accompagnare la tua crescita.</p>
+        <div className="wrap">
+          <div className="section-head" data-reveal>
+            <p className="kicker">Centro Studi, Orientamento e Formazione Professionale</p>
+            <h2 id="training-title">Edoardo Apicella</h2>
+            <p className="lead">{trainingCentre.presentation[0]}</p>
+          </div>
+          <ul className="training-areas">
+            {areas.map(({ icon: Icon, ...area }, index) => (
+              <li key={area.href} data-reveal data-reveal-delay={index * 60}>
+                <a className="card is-accent training-area" href={area.href}>
+                  <span className="training-area-icon" aria-hidden="true"><Icon size={22} strokeWidth={1.7} /></span>
+                  <h3>{area.label}</h3>
+                  <p>{area.description}</p>
+                </a>
+              </li>
+            ))}
+          </ul>
+          <div className="training-highlight" data-reveal>
+            <div className="training-highlight-copy">
+              <h3>Corsi professionali in evidenza</h3>
+              <p>Percorsi di formazione finanziata e autofinanziata, con qualifiche riconosciute dalla Regione Campania. Per i corsi autofinanziati sono previsti <strong>pagamenti rateizzabili</strong> e <strong>tutor dedicati</strong>.</p>
+              <div className="actions">
+                <ArrowLink href={originalPage("/richiedi-informazioni/")}>Richiedi informazioni</ArrowLink>
+                <a className="text-link" href={originalPage("/area-attivita/corsi-di-formazione-professionale/")}>Tutti i corsi</a>
+              </div>
+            </div>
+            <ul className="training-courses">
+              {highlighted.map(course => (
+                <li key={course.slug}><a href={coursePath(course.slug)}><span>{course.title}</span><ArrowRight size={18} aria-hidden="true" /></a></li>
+              ))}
+            </ul>
+          </div>
         </div>
-        <ul className="training-grid">
-          {trainingAreas.map((area, index) => (
-            <li key={area.href} className="training-grid-item" data-reveal data-reveal-delay={index * 90}>
-              <TrainingCard area={area} titleId={`training-card-title-${index}`} />
-            </li>
-          ))}
-        </ul>
-        <div className="training-mobile-carousel"><MobileCarousel label="Centro di Formazione" slides={trainingAreas.map((area, index) => <TrainingCard key={area.href} area={area} titleId={`training-mobile-title-${index}`} />)} /></div>
       </ScrollReveal>
     </section>
   );

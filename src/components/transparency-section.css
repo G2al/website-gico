@@ -1,40 +1,13 @@
-.transparency-section { max-width: 1440px; margin: 0 auto; padding: 0 56px 96px; }
-.transparency-heading { margin-bottom: 40px; }
-.transparency-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
-.transparency-card { position: relative; isolation: isolate; overflow: hidden; display: flex; flex-direction: column; align-items: flex-start; padding: clamp(28px, 3.4vw, 44px); border: 1px solid #335c851a; border-radius: 26px; background: #fff; transition: transform 350ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 350ms ease; }
-.transparency-card.is-report { border-color: transparent; background: var(--brand-dark); color: #fff; }
-.transparency-card.is-report::after { content: ""; position: absolute; z-index: -1; right: -90px; bottom: -110px; width: 320px; height: 320px; border-radius: 50%; background: radial-gradient(circle, #335c85 0%, #335c8500 70%); }
-.transparency-icon { display: grid; place-items: center; width: 56px; height: 56px; margin-bottom: 26px; border-radius: 16px; background: var(--background); color: var(--brand); }
-.is-report .transparency-icon { background: #ffffff1a; color: #fff; }
-.transparency-kicker { margin: 0 0 8px; color: var(--muted); font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; }
-.is-report .transparency-kicker { color: var(--brand-light); }
-.transparency-card h3 { margin: 0; font-size: clamp(28px, 2.8vw, 40px); font-weight: 500; line-height: 1.1; letter-spacing: -0.05em; }
-.transparency-card h3 span { color: var(--brand-light); }
-.transparency-card > p:not(.transparency-kicker) { max-width: 440px; margin: 14px 0 0; color: var(--muted); font-size: 14px; line-height: 1.7; text-wrap: pretty; }
-.is-report > p:not(.transparency-kicker) { color: #dbe7f1; }
-.transparency-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0 0; padding: 0; list-style: none; }
-.transparency-tags li { padding: 7px 13px; border-radius: 100px; background: var(--background); color: var(--brand-dark); font-size: 12.5px; font-weight: 500; }
-.transparency-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 22px; margin-top: auto; padding-top: 30px; }
-.transparency-button { display: inline-flex; align-items: center; gap: 10px; min-height: 46px; padding: 0 20px; border-radius: 100px; background: #fff; color: var(--brand-dark); font-size: 13px; font-weight: 500; transition: background 180ms ease, transform 180ms ease; }
-.transparency-button:hover { background: var(--brand-light); transform: translateY(-2px); }
-.transparency-link { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: var(--brand); font-size: 13px; font-weight: 500; text-decoration: underline; text-decoration-color: #335c8559; text-underline-offset: 5px; }
-.is-report .transparency-link { color: #fff; text-decoration-color: #ffffff66; }
-.transparency-link svg { transition: transform 180ms ease; }
-.transparency-link:hover svg { transform: translate(2px, -2px); }
-.is-report :focus-visible { outline-color: var(--brand-light); }
-@media (hover: hover) {
-  .transparency-card:hover { transform: translateY(-5px); box-shadow: 0 20px 44px #2345651a; }
-}
+.transparency-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.transparency-card { padding: 32px; }
+.transparency-icon { display: grid; place-items: center; width: 48px; height: 48px; margin-bottom: 20px; border-radius: var(--radius); background: var(--azzurro-tint); color: var(--blue); }
+.transparency-card h3 { font-size: 22px; }
+.transparency-card .chip-list { margin-top: 20px; }
+.transparency-card .actions { margin-top: auto; padding-top: 28px; }
 
-@media (max-width: 1100px) {
-  .transparency-section { padding-inline: 32px; }
-}
 @media (max-width: 800px) {
   .transparency-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 600px) {
-  .transparency-section { padding: 0 20px 56px; }
-  .transparency-heading { margin-bottom: 28px; }
-  .transparency-card { padding: 26px 22px; border-radius: 20px; }
-  .transparency-icon { width: 50px; height: 50px; margin-bottom: 20px; }
+  .transparency-card { padding: 24px 20px; }
 }

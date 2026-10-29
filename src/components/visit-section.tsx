@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
+import { GraduationCap, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import { gicoContact } from "@/lib/gico-contact";
 import { originalPage } from "@/lib/navigation";
 import { ArrowLink } from "./arrow-link";
@@ -10,27 +10,27 @@ const directionsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeU
 
 export function VisitSection() {
   return (
-    <section className="visit-section" aria-labelledby="visit-title">
+    <section className="section visit-section" aria-labelledby="visit-title">
       <ScrollReveal>
-        <div className="visit-panel">
+        <div className="wrap visit-grid">
           <div className="visit-copy" data-reveal>
-            <p className="section-eyebrow">Dove siamo</p>
-            <h2 id="visit-title" className="section-title">Vieni a <span>trovarci.</span></h2>
-            <p className="section-lead">Il Centro Sociale e il Centro di Formazione si trovano nel complesso del Cottolengo di Trentola Ducenta.</p>
+            <p className="kicker">Contatti</p>
+            <h2 id="visit-title">Sede e recapiti</h2>
+            <p className="lead">Il Centro Sociale e il Centro di Formazione si trovano nel complesso della Piccola Casa della Divina Provvidenza – Cottolengo di Trentola Ducenta.</p>
             <ul className="visit-contacts">
-              <li><span className="visit-contact-icon" aria-hidden="true"><MapPin size={19} /></span><span><small>Sede legale e operativa</small>{gicoContact.street}, {gicoContact.city}</span></li>
-              <li><span className="visit-contact-icon" aria-hidden="true"><Phone size={19} /></span><span><small>Telefono</small><a href={gicoContact.phoneHref}>{gicoContact.phone}</a></span></li>
-              <li><span className="visit-contact-icon" aria-hidden="true"><MessageCircle size={19} /></span><span><small>WhatsApp</small><a href={gicoContact.whatsappHref} target="_blank" rel="noopener noreferrer">{gicoContact.whatsapp}<span className="visually-hidden"> (si apre in una nuova scheda)</span></a></span></li>
-              <li><span className="visit-contact-icon" aria-hidden="true"><Mail size={19} /></span><span><small>Email</small><a href={`mailto:${gicoContact.email}`}>{gicoContact.email}</a></span></li>
+              <li><MapPin size={20} aria-hidden="true" /><span><small>Sede legale e operativa</small>{gicoContact.street}, {gicoContact.postalCode} {gicoContact.city}</span></li>
+              <li><Phone size={20} aria-hidden="true" /><span><small>Telefono</small><a href={gicoContact.phoneHref}>{gicoContact.phone}</a></span></li>
+              <li><MessageCircle size={20} aria-hidden="true" /><span><small>WhatsApp</small><a href={gicoContact.whatsappHref} target="_blank" rel="noopener noreferrer">{gicoContact.whatsapp}<span className="visually-hidden"> (si apre in una nuova scheda)</span></a></span></li>
+              <li><Mail size={20} aria-hidden="true" /><span><small>Informazioni generali</small><a href={`mailto:${gicoContact.email}`}>{gicoContact.email}</a></span></li>
+              <li><GraduationCap size={20} aria-hidden="true" /><span><small>Corsi, certificazioni e formazione universitaria</small><a href={`mailto:${gicoContact.trainingEmail}`}>{gicoContact.trainingEmail}</a></span></li>
             </ul>
-            <div className="visit-actions">
-              <ArrowLink href={directionsUrl}>Indicazioni stradali</ArrowLink>
-              <ArrowLink href={originalPage("/contatti-cooperativa/")} secondary>Tutti i contatti</ArrowLink>
+            <div className="actions">
+              <ArrowLink href={originalPage("/contatti-cooperativa/")}>Tutti i contatti</ArrowLink>
+              <a className="text-link" href={directionsUrl} target="_blank" rel="noopener noreferrer">Indicazioni stradali<span className="visually-hidden"> (si apre in una nuova scheda)</span></a>
             </div>
           </div>
-          <div className="visit-photo" data-reveal data-reveal-delay="90">
-            <Image src="/images/gallery-centro-sociale-17.webp" alt="La palma, il prato e gli spazi esterni del Centro Sociale" fill sizes="(max-width: 900px) calc(100vw - 64px), 600px" />
-            <span className="visit-photo-chip"><MapPin size={15} aria-hidden="true" />Trentola Ducenta (CE)</span>
+          <div className="visit-photo" data-reveal data-reveal-delay="80">
+            <Image src="/images/gallery-centro-sociale-17.webp" alt="La palma, il prato e gli spazi esterni del Centro Sociale" fill sizes="(max-width: 900px) calc(100vw - 48px), 560px" />
           </div>
         </div>
       </ScrollReveal>
