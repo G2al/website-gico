@@ -2,7 +2,7 @@
 .activity { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 56px; align-items: center; scroll-margin-top: 120px; }
 .activity.is-reversed .activity-photo { order: 2; }
 .activity-photo img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--radius); }
-.activity-copy { padding-left: 24px; border-left: 4px solid var(--azzurro); }
+.activity-copy { padding-left: 24px; border-left: 6px solid var(--giallo); }
 .activity-copy h2 { margin: 0 0 16px; font-size: clamp(24px, 2.3vw, 32px); line-height: 1.2; }
 .activity-copy p { max-width: 600px; margin: 0; color: var(--ink-2); font-size: 18px; }
 .section-alt .section-head { margin-bottom: 0; }

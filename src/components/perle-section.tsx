@@ -4,6 +4,7 @@ import { socialCentre } from "@/lib/institutional-content";
 import { ArrowLink } from "./arrow-link";
 import { ScrollReveal } from "./scroll-reveal";
 import { VideoBlock } from "./video-block";
+import { Blob, Ring, Squiggle, Wave } from "./decor";
 import "./perle-section.css";
 
 const facts = [
@@ -15,7 +16,10 @@ const facts = [
 
 export function PerleSection() {
   return (
-    <section id="le-perle-preziose" className="section section-alt perle-section" aria-labelledby="perle-title">
+    <section id="le-perle-preziose" className="section section-perle theme-perle perle-section" aria-labelledby="perle-title">
+      <Blob className="perle-blob float-slow" color="#0089ab" />
+      <Ring className="perle-ring float-fast" color="#f7b500" />
+      <Squiggle className="perle-squiggle" color="#9fd3e3" />
       <ScrollReveal>
         <div className="wrap">
           <div className="section-head" data-reveal>
@@ -56,6 +60,7 @@ export function PerleSection() {
           </div>
         </div>
       </ScrollReveal>
+      <Wave color="#ffffff" className="section-wave-bottom" />
     </section>
   );
 }

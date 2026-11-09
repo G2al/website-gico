@@ -1,14 +1,9 @@
 import type { Metadata } from "next";
-import { Manrope, Source_Sans_3 } from "next/font/google";
+import { Nunito } from "next/font/google";
 import "./globals.css";
 
-const manrope = Manrope({
-  variable: "--font-manrope",
-  subsets: ["latin"],
-});
-
-const sourceSans = Source_Sans_3({
-  variable: "--font-source-sans",
+const nunito = Nunito({
+  variable: "--font-nunito",
   subsets: ["latin"],
 });
 
@@ -27,7 +22,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="it"
       data-scroll-behavior="smooth"
-      className={`${manrope.variable} ${sourceSans.variable} h-full antialiased`}
+      className={`${nunito.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>

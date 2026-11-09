@@ -10,7 +10,7 @@
 .footer-brand img { display: block; width: 120px; height: auto; }
 .footer-about > p { margin: 0; color: var(--ink-2); font-size: 15px; }
 .footer-socials { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px !important; }
-.footer-socials a { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 6px 12px 6px 8px; border: 1px solid var(--line); border-radius: var(--radius); color: var(--ink); font-size: 15px; }
+.footer-socials a { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 6px 12px 6px 8px; border: 0; box-shadow: var(--shadow-card); border-radius: var(--radius); color: var(--ink); font-size: 15px; }
 .footer-socials a:hover { border-color: var(--blue); }
 .footer-socials img { border-radius: var(--radius-sm); }
 .footer-contact address { font-style: normal; color: var(--ink-2); font-size: 15px; }
@@ -18,7 +18,7 @@
 .footer-contact strong { color: var(--ink); }
 .footer-contact dl { margin: 0; }
 .footer-contact dl > div { padding: 6px 0; }
-.footer-contact dt { color: var(--ink); font-weight: 600; }
+.footer-contact dt { color: var(--ink); font-weight: 800; }
 .footer-contact dd { margin: 0; overflow-wrap: anywhere; }
 .footer-contact a { color: var(--blue); }
 .footer-contact a:hover { text-decoration: underline; text-underline-offset: 4px; }

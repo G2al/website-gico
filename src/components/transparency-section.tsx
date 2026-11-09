@@ -8,7 +8,7 @@ const certificateNames = [...new Set(certificates.map(certificate => certificate
 
 export function TransparencySection() {
   return (
-    <section className="section section-alt transparency-section" aria-labelledby="transparency-title">
+    <section className="section section-warm transparency-section" aria-labelledby="transparency-title">
       <ScrollReveal>
         <div className="wrap">
           <div className="section-head" data-reveal>

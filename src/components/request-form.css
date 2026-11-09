@@ -16,7 +16,7 @@
 .request-privacy a { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; }
 .request-submit { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; }
 .request-submit .request-help { flex: 1 1 280px; }
-.request-ready { padding: 20px 24px; border-left: 4px solid var(--azzurro); background: var(--azzurro-tint); }
+.request-ready { padding: 20px 24px; border-left: 6px solid var(--giallo); background: var(--azzurro-tint); }
 .request-ready p { margin: 0; color: var(--ink); }
 
 @media (max-width: 600px) {

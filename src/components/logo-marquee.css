@@ -1,6 +1,6 @@
 .logo-marquee { padding-block: 40px; border-block: 1px solid var(--line); background: var(--surface); }
 .logo-marquee-heading { margin-bottom: 20px; }
-.logo-marquee-heading h2 { margin: 0; color: var(--ink-2); font-family: var(--font-body); font-size: 14px; font-weight: 600; letter-spacing: 0.06em; text-align: center; text-transform: uppercase; }
+.logo-marquee-heading h2 { margin: 0; color: var(--ink-2); font-family: var(--font-body); font-size: 14px; font-weight: 800; letter-spacing: 0.06em; text-align: center; text-transform: uppercase; }
 .logo-marquee-window { overflow: hidden; }
 .logo-marquee-track { display: flex; width: max-content; animation: gico-logo-scroll 40s linear infinite; }
 .logo-marquee-group { display: flex; flex-shrink: 0; gap: 56px; margin: 0; padding: 0 56px 0 0; list-style: none; }

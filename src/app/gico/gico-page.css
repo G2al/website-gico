@@ -1,6 +1,6 @@
 .identity { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 56px; align-items: start; }
 .identity h2 { margin: 0 0 20px; font-size: clamp(26px, 2.5vw, 34px); }
-.identity-statement { margin: 0; padding: 32px; border-left: 4px solid var(--azzurro); background: var(--surface); }
+.identity-statement { margin: 0; padding: 32px; border-left: 6px solid var(--giallo); border-radius: var(--radius); background: var(--bg-warm); }
 .identity-statement p { margin: 0; color: var(--ink); font-family: var(--font-heading); font-size: 21px; font-weight: 500; line-height: 1.5; }
 
 @media (max-width: 900px) {

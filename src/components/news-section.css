@@ -1,9 +1,9 @@
 .news-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin: 0; padding: 0; list-style: none; }
 .news-grid > li { display: flex; min-width: 0; }
-.news-card { position: relative; display: flex; flex-direction: column; width: 100%; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); overflow: hidden; transition: border-color 160ms ease; }
+.news-card { position: relative; display: flex; flex-direction: column; width: 100%; border: 0; box-shadow: var(--shadow-card); border-radius: var(--radius); background: var(--surface); overflow: hidden; transition: border-color 160ms ease; }
 .news-card-photo { position: relative; display: grid; place-items: center; aspect-ratio: 3 / 2; background: var(--bg-alt); color: var(--blue); }
 .news-card-photo img { object-fit: cover; }
-.news-card-body { display: flex; flex-direction: column; gap: 8px; padding: 20px 24px 24px; border-top: 4px solid var(--azzurro); }
+.news-card-body { display: flex; flex-direction: column; gap: 8px; padding: 20px 24px 24px; border-top: 6px solid var(--giallo); }
 .news-card-body time { color: var(--ink-2); font-size: 15px; }
 .news-card-body h3 { margin: 0; font-size: 19px; line-height: 1.4; overflow-wrap: anywhere; }
 .news-card-body h3 a::after { content: ""; position: absolute; inset: 0; }
@@ -17,10 +17,10 @@
   .news-grid { grid-template-columns: 1fr; gap: 16px; }
   .news-card { flex-direction: row; }
   .news-card-photo { flex: 0 0 36%; aspect-ratio: auto; min-height: 140px; }
-  .news-card-body { justify-content: center; border-top: 0; border-left: 4px solid var(--azzurro); }
+  .news-card-body { justify-content: center; border-top: 0; border-left: 6px solid var(--giallo); }
 }
 @media (max-width: 480px) {
   .news-card { flex-direction: column; }
   .news-card-photo { flex: 0 0 auto; aspect-ratio: 3 / 2; }
-  .news-card-body { border-left: 0; border-top: 4px solid var(--azzurro); padding: 16px 20px 20px; }
+  .news-card-body { border-left: 0; border-top: 6px solid var(--giallo); padding: 16px 20px 20px; }
 }

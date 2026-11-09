@@ -4,6 +4,7 @@ import { coursePath, courses } from "@/lib/courses";
 import { trainingCentre } from "@/lib/institutional-content";
 import { ArrowLink } from "./arrow-link";
 import { ScrollReveal } from "./scroll-reveal";
+import { Dots, Ring, Sparkle, Wave } from "./decor";
 import "./training-section.css";
 
 const trainingMenu = navigation.find(item => item.label === "Centro di Formazione");
@@ -12,7 +13,11 @@ const highlighted = courses.filter(course => course.highlight);
 
 export function TrainingSection() {
   return (
-    <section id="centro-di-formazione" className="section training-section" aria-labelledby="training-title">
+    <section id="centro-di-formazione" className="section section-apicella theme-apicella training-section" aria-labelledby="training-title">
+      <Wave color="#2f4d6e" className="wave-top" flip />
+      <Dots className="training-dots" color="#f7b500" />
+      <Ring className="training-ring float-slow" color="#0089ab" />
+      <Sparkle className="training-sparkle float-fast" color="#f7b500" />
       <ScrollReveal>
         <div className="wrap">
           <div className="section-head" data-reveal>

@@ -5,7 +5,7 @@
 .visit-contacts li > svg { flex-shrink: 0; margin-top: 3px; color: var(--blue); }
 .visit-contacts li > span { display: flex; flex-direction: column; min-width: 0; overflow-wrap: anywhere; }
 .visit-contacts small { color: var(--ink-2); font-size: 14px; }
-.visit-contacts a { color: var(--blue); font-weight: 600; text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 4px; transition: text-decoration-color 160ms ease; }
+.visit-contacts a { color: var(--blue); font-weight: 800; text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 4px; transition: text-decoration-color 160ms ease; }
 .visit-contacts a:hover { text-decoration-color: currentColor; }
 .visit-photo { position: relative; min-height: 420px; overflow: hidden; border-radius: var(--radius); background: var(--bg-alt); }
 .visit-photo img { object-fit: cover; }

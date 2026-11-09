@@ -6,9 +6,13 @@ import { SiteHeader } from "./site-header";
 import { SiteFooter } from "./site-footer";
 import { ContactBar } from "./contact-bar";
 import { ScrollReveal } from "./scroll-reveal";
+import { Blob, Ring, Wave } from "./decor";
 import "./institutional-page.css";
 
 type SectionLink = { id: string; label: string };
+
+const socialPaths = ["/centro-sociale-polifunzionale", "/servizi-centro-sociale", "/gallery"];
+const trainingPaths = ["/centro-di-formazione", "/area-attivita", "/corsi", "/richiedi-informazioni"];
 
 export function InstitutionalPage({ title, path, sections = [], children, intro, overline, parent = { label: "Chi siamo", href: "/gico" }, showContactBar = true }: {
   title: string;
@@ -20,12 +24,16 @@ export function InstitutionalPage({ title, path, sections = [], children, intro,
   parent?: { label: string; href: string } | null;
   showContactBar?: boolean;
 }) {
+  // Each centre keeps its own colour across all of its pages.
+  const area = socialPaths.some(prefix => path.startsWith(prefix)) ? "perle" : trainingPaths.some(prefix => path.startsWith(prefix)) ? "apicella" : null;
   return (
-    <div className="site-shell institutional-page">
+    <div className={`site-shell institutional-page${area ? ` theme-${area}` : ""}`}>
       <a className="skip-link" href="#contenuto">Vai al contenuto</a>
       <SiteHeader activePath={path} />
       <main id="contenuto">
-        <header className="page-header">
+        <header className={`page-header${area ? ` section-${area}` : ""}`}>
+          <Blob className="page-header-blob float-slow" color={area === "apicella" ? "#3d6189" : area === "perle" ? "#0089ab" : "#cdeaf3"} />
+          <Ring className="page-header-ring float-fast" color="#f7b500" />
           <div className="wrap">
             <nav className="breadcrumb" aria-label="Percorso di navigazione">
               <ol>
@@ -43,6 +51,7 @@ export function InstitutionalPage({ title, path, sections = [], children, intro,
               </nav>
             )}
           </div>
+          <Wave color="#ffffff" className="page-header-wave" />
         </header>
         <ScrollReveal>{children}</ScrollReveal>
         {showContactBar && <ContactBar />}
