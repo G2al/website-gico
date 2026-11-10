@@ -48,7 +48,7 @@
 /* Glowing animated border on the two centre cards, switched on while in view. */
 @property --glow-angle { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
 .hero-centre::after { content: ""; position: absolute; inset: -5px; z-index: -1; padding: 5px; border-radius: calc(var(--radius-lg) + 5px); background: conic-gradient(from var(--glow-angle), #f7b500, #ffe27a, #0089ab, #9fd3e3, #f7b500); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; opacity: 0; transition: opacity 600ms ease; animation: glow-spin 5s linear infinite; pointer-events: none; }
-.hero-centre { isolation: isolate; }
+.hero-centre { isolation: isolate; min-width: 0; max-width: 100%; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 .hero-centre.is-lit::after { opacity: 1; }
 .hero-centre.is-lit { box-shadow: 0 0 0 0 transparent, 0 20px 60px rgb(247 181 0 / 35%); }
 @keyframes glow-spin { to { --glow-angle: 360deg; } }
