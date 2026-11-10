@@ -20,7 +20,6 @@
 .page-index { margin-top: 36px; }
 .page-index ul { display: flex; flex-wrap: wrap; gap: 10px; margin: 0; padding: 0; list-style: none; }
 .page-index a { display: inline-flex; align-items: center; min-height: 44px; padding: 8px 18px; border-radius: var(--radius-sm); background: var(--surface); color: var(--blue); font-size: 15px; font-weight: 800; box-shadow: var(--shadow-card); transition: background 180ms ease, transform 180ms ease; }
-.page-index a:hover { background: var(--giallo); color: var(--ink); transform: translateY(-2px); }
 
 /* Story: text + photograph */
 .story { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: 56px; align-items: center; }
@@ -36,7 +35,6 @@
 /* Principles grid */
 .principles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin: 0; padding: 0; list-style: none; }
 .principles li { padding: 28px; border-radius: var(--radius); background: var(--surface); box-shadow: var(--shadow-card); transition: transform 200ms ease; }
-.principles li:hover { transform: translateY(-4px); }
 .principles li::before { content: ""; display: block; width: 36px; height: 6px; margin-bottom: 16px; border-radius: 6px; background: var(--giallo); }
 .principles h3 { margin: 0 0 8px; color: var(--accent-dark); font-size: 20px; }
 .principles p { margin: 0; color: var(--ink-2); }
@@ -64,4 +62,10 @@
   .principles { grid-template-columns: 1fr; }
   .documents { grid-template-columns: 1fr; gap: 16px; }
   .documents li { padding: 24px 20px; }
+}
+
+/* Hover motion only for real pointers (avoids jumps while scrolling on touch screens). */
+@media (hover: hover) and (pointer: fine) {
+  .page-index a:hover { background: var(--giallo); color: var(--ink); transform: translateY(-2px); }
+  .principles li:hover { transform: translateY(-4px); }
 }
