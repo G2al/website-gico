@@ -58,7 +58,7 @@
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 96px; }
-body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 17px; line-height: 1.65; }
+body { margin: 0; overflow-x: hidden; background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 17px; line-height: 1.65; }
 h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 800; letter-spacing: -0.01em; color: var(--ink); text-wrap: balance; }
 p { text-wrap: pretty; }
 button, a { -webkit-tap-highlight-color: transparent; }
@@ -155,7 +155,6 @@ a.card:hover h3 { color: var(--accent-dark); }
   .section-head { margin-bottom: 32px; }
   .lead { font-size: 17px; }
   .actions .arrow-link { flex: 1 1 auto; }
-  .decor { display: none; }
 }
 @media (max-width: 400px) {
   :root { --gutter: 20px; }
@@ -163,4 +162,39 @@ a.card:hover h3 { color: var(--accent-dark); }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+}
+
+/* Section decorations (home). Sections clip them so they never cause overflow. */
+.gallery-strip, .news-section, .transparency-section, .visit-section, .about-section { overflow: hidden; }
+:is(.gallery-strip, .news-section, .transparency-section, .visit-section, .about-section) > .wrap,
+:is(.gallery-strip, .news-section, .transparency-section, .visit-section, .about-section) > div > .wrap { z-index: 1; }
+.deco-gallery-1 { top: 56px; left: 46%; width: 38px; height: 38px; }
+.deco-gallery-2 { bottom: 24px; right: 6%; width: 140px; height: 44px; }
+.deco-news-1 { top: 70px; left: 36%; width: 90px; height: 90px; opacity: 0.5; }
+.deco-news-2 { bottom: 40px; right: -30px; width: 110px; height: 110px; opacity: 0.5; }
+.deco-docs-1 { top: -80px; right: -100px; width: 360px; height: 360px; }
+.deco-docs-2 { bottom: 60px; left: 3%; width: 36px; height: 36px; }
+.deco-visit-1 { top: 50px; right: 46%; width: 60px; height: 60px; }
+.deco-visit-2 { bottom: 40px; left: -10px; width: 100px; height: 100px; opacity: 0.4; }
+.deco-about-1 { top: 60px; right: 8%; width: 140px; height: 44px; }
+.deco-about-2 { bottom: 120px; left: 3%; width: 34px; height: 34px; }
+.deco-about-3 { bottom: -120px; right: -120px; width: 340px; height: 340px; opacity: 0.6; }
+@media (max-width: 600px) {
+  body .deco-gallery-1 { top: 24px; left: auto; right: 20px; width: 26px; height: 26px; }
+  body .deco-gallery-2 { width: 90px; height: 30px; bottom: 8px; }
+  body .deco-news-1 { top: 30px; left: auto; right: 16px; width: 56px; height: 56px; }
+  body .deco-news-2 { width: 70px; height: 70px; }
+  body .deco-docs-1 { width: 200px; height: 200px; top: -60px; right: -80px; }
+  body .deco-visit-1 { top: 24px; right: 20px; width: 40px; height: 40px; }
+  body .deco-visit-2 { width: 60px; height: 60px; }
+  body .deco-about-1 { top: 24px; right: 16px; width: 80px; height: 28px; }
+  body .deco-about-3 { width: 200px; height: 200px; }
+  body .perle-blob { top: 40px; right: -110px; width: 240px; height: 240px; }
+  body .perle-ring { top: 30px; right: 20px; width: 40px; height: 40px; }
+  body .perle-squiggle { top: auto; bottom: 120px; left: -10px; width: 90px; height: 30px; }
+  body .training-dots { top: 30px; right: 16px; width: 60px; height: 60px; }
+  body .training-ring { bottom: 40px; left: -20px; width: 70px; height: 70px; }
+  body .training-sparkle { top: 50px; right: 30%; width: 26px; height: 26px; }
+  body .page-header-blob { top: -80px; right: -90px; width: 220px; height: 220px; }
+  body .page-header-ring { top: 20px; right: 20px; width: 36px; height: 36px; }
 }

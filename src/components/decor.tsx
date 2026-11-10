@@ -44,7 +44,7 @@ export function Dots({ className = "", style, color }: DecorProps & { color: str
 export function Squiggle({ className = "", style, color }: DecorProps & { color: string }) {
   return (
     <span className={`decor ${className}`} style={style} aria-hidden="true">
-      <svg viewBox="0 0 200 60"><path d="M6 40c20-30 40-30 56 0s36 30 56 0 36-30 56 0" fill="none" stroke={color} strokeWidth="9" strokeLinecap="round" /></svg>
+      <svg viewBox="0 -12 200 84" overflow="visible"><path d="M8 30c20-30 40-30 56 0s36 30 56 0 36-30 56 0" fill="none" stroke={color} strokeWidth="9" strokeLinecap="round" /></svg>
     </span>
   );
 }

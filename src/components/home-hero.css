@@ -42,3 +42,24 @@
   .hero-centre-body { padding: 24px 22px 26px; }
   .hero-centre-photo { margin: 10px 10px 0; }
 }
+
+/* Extra decorations */
+.hero-sparkle-2 { top: 40px; right: 12%; width: 34px; height: 34px; }
+.hero-squiggle-2 { top: 46%; right: -10px; width: 130px; height: 42px; transform: rotate(-12deg); }
+
+/* Glowing animated border on the two centre cards, switched on while in view. */
+@property --glow-angle { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
+.hero-centre::after { content: ""; position: absolute; inset: -5px; z-index: -1; padding: 5px; border-radius: calc(var(--radius-lg) + 5px); background: conic-gradient(from var(--glow-angle), #f7b500, #ffe27a, #0089ab, #9fd3e3, #f7b500); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; opacity: 0; transition: opacity 600ms ease; animation: glow-spin 5s linear infinite; pointer-events: none; }
+.hero-centre { isolation: isolate; }
+.hero-centre.is-lit::after { opacity: 1; }
+.hero-centre.is-lit { box-shadow: 0 0 0 0 transparent, 0 20px 60px rgb(247 181 0 / 35%); }
+@keyframes glow-spin { to { --glow-angle: 360deg; } }
+
+@media (max-width: 600px) {
+  .hero-blob-1 { top: -80px; right: -120px; width: 260px; height: 260px; }
+  .hero-ring { top: auto; bottom: 46%; left: auto; right: 12px; width: 40px; height: 40px; }
+  .hero-dots { bottom: auto; top: 270px; left: auto; right: 16px; width: 56px; height: 56px; }
+  .hero-sparkle-2 { top: auto; bottom: 30%; right: auto; left: 8px; width: 24px; height: 24px; }
+  .hero-squiggle-2 { display: none; }
+  .hero-centre-sparkle { width: 32px; height: 32px; right: 20px; top: -14px; }
+}

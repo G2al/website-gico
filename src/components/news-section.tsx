@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Newspaper } from "lucide-react";
 import { originalPage } from "@/lib/navigation";
 import { ArrowLink } from "./arrow-link";
+import { Dots, Ring } from "./decor";
 import "./news-section.css";
 
 type HomeNewsArticle = { id: string; title: string; date: string; day: string; month: string; dateLabel: string; image: string | null; alt: string; href: string };
@@ -9,6 +10,8 @@ type HomeNewsArticle = { id: string; title: string; date: string; day: string; m
 export function NewsSection({ newsArticles }: { newsArticles: HomeNewsArticle[] }) {
   return (
     <section id="news" className="section news-section" aria-labelledby="news-title">
+      <Dots className="deco-news-1" color="#f7b500" />
+      <Ring className="deco-news-2 float-slow" color="#0089ab" />
       <div className="wrap">
         <div className="section-head is-split">
           <div>

@@ -4,6 +4,7 @@ import { gicoContact } from "@/lib/gico-contact";
 import { originalPage } from "@/lib/navigation";
 import { ArrowLink } from "./arrow-link";
 import { ScrollReveal } from "./scroll-reveal";
+import { Ring, Dots } from "./decor";
 import "./visit-section.css";
 
 const directionsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`GiCo ${gicoContact.street} ${gicoContact.city}`)}`;
@@ -11,6 +12,8 @@ const directionsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeU
 export function VisitSection() {
   return (
     <section className="section visit-section" aria-labelledby="visit-title">
+      <Ring className="deco-visit-1 float-fast" color="#f7b500" />
+      <Dots className="deco-visit-2" color="#0089ab" />
       <ScrollReveal>
         <div className="wrap visit-grid">
           <div className="visit-copy" data-reveal>

@@ -3,6 +3,7 @@ import { GraduationCap, HeartHandshake } from "lucide-react";
 import { originalPage } from "@/lib/navigation";
 import { ArrowLink } from "./arrow-link";
 import { Blob, Dots, Ring, Sparkle, Squiggle, Wave } from "./decor";
+import { GlowOnScroll } from "./glow-on-scroll";
 import "./home-hero.css";
 
 const centres = [
@@ -36,6 +37,8 @@ export function HomeHero() {
       <Blob className="hero-blob-1 float-slow" color="#cdeaf3" />
       <Ring className="hero-ring float-fast" color="#f7b500" />
       <Dots className="hero-dots" color="#0089ab" />
+      <Sparkle className="hero-sparkle-2 float-slow" color="#0089ab" />
+      <Squiggle className="hero-squiggle-2" color="#f7b500" />
       <div className="wrap">
         <div className="hero-intro">
           <p className="kicker">GiCo Società Cooperativa Sociale – Impresa Sociale</p>
@@ -43,7 +46,7 @@ export function HomeHero() {
           <Squiggle className="hero-squiggle" color="#0089ab" />
           <p className="lead">A Trentola Ducenta, nel complesso della Piccola Casa della Divina Provvidenza – Cottolengo, accogliamo le persone con disabilità e accompagniamo chi studia, lavora o cerca lavoro.</p>
         </div>
-        <div className="hero-centres">
+        <GlowOnScroll className="hero-centres">
           {centres.map(({ icon: Icon, ...centre }, index) => (
             <article className={`hero-centre is-${centre.id}`} key={centre.id} aria-labelledby={`hero-centre-${centre.id}`}>
               <Sparkle className="hero-centre-sparkle float-fast" color="#f7b500" />
@@ -62,7 +65,7 @@ export function HomeHero() {
               </div>
             </article>
           ))}
-        </div>
+        </GlowOnScroll>
       </div>
       <Wave color="#00708c" className="hero-wave" />
     </section>

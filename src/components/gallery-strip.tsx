@@ -2,6 +2,7 @@ import Image from "next/image";
 import { originalPage } from "@/lib/navigation";
 import { socialGallery } from "@/lib/social-content";
 import { ArrowLink } from "./arrow-link";
+import { Sparkle, Squiggle } from "./decor";
 import "./gallery-strip.css";
 
 const rows = [socialGallery.slice(0, 9), socialGallery.slice(9)];
@@ -9,6 +10,8 @@ const rows = [socialGallery.slice(0, 9), socialGallery.slice(9)];
 export function GalleryStrip() {
   return (
     <section className="section gallery-strip" aria-labelledby="gallery-strip-title">
+      <Sparkle className="deco-gallery-1 float-fast" color="#f7b500" />
+      <Squiggle className="deco-gallery-2" color="#0089ab" />
       <div className="wrap section-head is-split">
         <div>
           <p className="kicker">Gallery · Le Perle Preziose</p>

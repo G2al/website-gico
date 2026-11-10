@@ -4,11 +4,15 @@ import { gicoContact } from "@/lib/gico-contact";
 import { ArrowLink } from "./arrow-link";
 import { ScrollReveal } from "./scroll-reveal";
 import { Timeline } from "./timeline";
+import { Squiggle, Sparkle, Blob } from "./decor";
 import "./about-section.css";
 
 export function AboutSection() {
   return (
     <section id="chi-siamo" className="section section-alt about-section" aria-labelledby="about-title">
+      <Squiggle className="deco-about-1" color="#f7b500" />
+      <Sparkle className="deco-about-2 float-slow" color="#0089ab" />
+      <Blob className="deco-about-3 float-slow" color="#cdeaf3" />
       <ScrollReveal>
         <div className="wrap">
           <div className="about-intro">

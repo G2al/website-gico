@@ -2,6 +2,7 @@ import { BadgeCheck, Download, FileText } from "lucide-react";
 import { certificates, socialReport } from "@/lib/institutional-content";
 import { originalPage } from "@/lib/navigation";
 import { ScrollReveal } from "./scroll-reveal";
+import { Blob, Sparkle } from "./decor";
 import "./transparency-section.css";
 
 const certificateNames = [...new Set(certificates.map(certificate => certificate.title.replace(/ Certificato.*$/, "")))];
@@ -9,6 +10,8 @@ const certificateNames = [...new Set(certificates.map(certificate => certificate
 export function TransparencySection() {
   return (
     <section className="section section-warm transparency-section" aria-labelledby="transparency-title">
+      <Blob className="deco-docs-1 float-slow" color="#ffe58a" />
+      <Sparkle className="deco-docs-2 float-fast" color="#0089ab" />
       <ScrollReveal>
         <div className="wrap">
           <div className="section-head" data-reveal>
