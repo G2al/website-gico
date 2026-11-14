@@ -26,7 +26,7 @@
   --gutter: 24px;
   --measure: 720px;
   --section-space: 104px;
-  --font-heading: var(--font-nunito), "Segoe UI", Arial, sans-serif;
+  --font-heading: var(--font-poppins), "Segoe UI", Arial, sans-serif;
   --font-body: var(--font-nunito), "Segoe UI", Arial, sans-serif;
   --shadow-card: 0 10px 30px rgb(30 53 80 / 8%);
   --shadow-hover: 0 18px 40px rgb(30 53 80 / 14%);
@@ -59,7 +59,7 @@
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 96px; overflow-x: hidden; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 body { margin: 0; overflow-x: hidden; background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 17px; line-height: 1.65; }
-h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 800; letter-spacing: -0.01em; color: var(--ink); text-wrap: balance; }
+h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 600; letter-spacing: -0.015em; color: var(--ink); text-wrap: balance; }
 p { text-wrap: pretty; }
 button, a { -webkit-tap-highlight-color: transparent; }
 button { font: inherit; cursor: pointer; }

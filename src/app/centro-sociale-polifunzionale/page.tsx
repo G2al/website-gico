@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { InstitutionalPage, InstitutionalPrinciples, InstitutionalStory } from "@/components/institutional-page";
 import { ArrowLink } from "@/components/arrow-link";
-import { VideoBlock } from "@/components/video-block";
+import { VideoClips } from "@/components/video-clips";
 import { socialCentre, socialValues } from "@/lib/institutional-content";
 import { originalPage } from "@/lib/navigation";
 import "./social-centre.css";
@@ -45,7 +45,8 @@ export default function SocialCentrePage() {
             ))}
           </ul>
           <div data-reveal data-reveal-delay="80">
-            <VideoBlock video={{ src: null, poster: "/images/gallery-centro-sociale-05.webp", title: "Una giornata al Centro Sociale Le Perle Preziose" }} />
+            <h3 className="centre-videos-title">Attività giornaliere</h3>
+            <VideoClips />
             <p className="centre-gallery-link"><a className="text-link" href={originalPage("/gallery/")}>Apri la gallery fotografica</a></p>
           </div>
         </div>

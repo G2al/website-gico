@@ -1,0 +1,13 @@
+.video-clips { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; max-width: 520px; margin-inline: auto; }
+.video-clip { margin: 0; }
+.video-clip:nth-child(2) { margin-top: 48px; }
+.video-clip-frame { position: relative; overflow: hidden; aspect-ratio: 9 / 16; padding: 8px; border-radius: 30px; background: var(--ink); box-shadow: var(--shadow-hover), 0 0 0 4px var(--giallo); }
+.video-clip:nth-child(2) .video-clip-frame { box-shadow: var(--shadow-hover), 0 0 0 4px #9fd3e3; }
+.video-clip-frame video { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 22px; background: var(--blue-dark); }
+
+@media (max-width: 600px) {
+  .video-clips { gap: 14px; }
+  .video-clip:nth-child(2) { margin-top: 28px; }
+  .video-clip-frame { padding: 5px; border-radius: 22px; }
+  .video-clip-frame video { border-radius: 17px; }
+}

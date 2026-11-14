@@ -3,7 +3,7 @@ import { originalPage } from "@/lib/navigation";
 import { socialCentre } from "@/lib/institutional-content";
 import { ArrowLink } from "./arrow-link";
 import { ScrollReveal } from "./scroll-reveal";
-import { VideoBlock } from "./video-block";
+import { VideoClips } from "./video-clips";
 import { Blob, Ring, Squiggle, Wave } from "./decor";
 import "./perle-section.css";
 
@@ -37,8 +37,9 @@ export function PerleSection() {
                 {facts.map(fact => <div key={fact.label}><dt>{fact.label}</dt><dd>{fact.value}</dd></div>)}
               </dl>
             </div>
-            <div data-reveal data-reveal-delay="80">
-              <VideoBlock video={{ src: null, poster: "/images/gallery-centro-sociale-14.webp", title: "Le attività del Centro Sociale Le Perle Preziose" }} />
+            <div className="perle-videos" data-reveal data-reveal-delay="80">
+              <h3 className="perle-videos-title">Attività giornaliere</h3>
+              <VideoClips />
             </div>
           </div>
 

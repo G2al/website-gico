@@ -25,7 +25,8 @@ Versione aggiornata dopo il feedback del cliente (novembre 2026): il design isti
 | `--accent*` | variabile | Colore dell'area corrente (impostato dal tema) |
 
 ## Tipografia
-- **Nunito** per tutto il sito. Titoli 800, testi 400, etichette e link 800.
+- **Poppins SemiBold (600)** per tutti i titoli (h1–h4) e gli anni della timeline.
+- **Nunito** per testi, etichette, pulsanti e link (400–800).
 - H1 clamp(36px, 4.8vw, 62px); H2 sezione clamp(30px, 3.2vw, 44px); titoli dei centri fino a 60px.
 - Etichetta (`.kicker`): maiuscolo, 14px, 800, con pallino giallo.
 - Evidenziazione (`.highlight`): sottolineatura gialla spessa dietro le parole chiave, al massimo una per titolo.
@@ -44,8 +45,12 @@ Versione aggiornata dopo il feedback del cliente (novembre 2026): il design isti
 
 ## Decorazioni SVG (`src/components/decor.tsx`)
 - `Wave`: onde tra sezioni di colore diverso.
-- `Blob`, `Ring`, `Dots`, `Squiggle`, `Sparkle`: forme decorative assolute, `aria-hidden`, nascoste sotto i 600px.
+- `Blob`, `Ring`, `Dots`, `Squiggle`, `Sparkle`: forme decorative assolute, `aria-hidden`, presenti anche su mobile in versione ridotta; ogni sezione le ritaglia (`overflow: hidden`).
+- Effetti di movimento al passaggio solo con `@media (hover: hover) and (pointer: fine)`; nessun effetto di hover sulle card dell'hero.
 - Animazioni lente (`.float-slow`, `.float-fast`), disattivate con “riduci movimento”.
+
+## Video
+- Clip verticali brevi (`VideoClips`, `public/video/`): senza audio, in loop, avviate solo quando visibili e mai con “riduci movimento”. Ottimizzate con ffmpeg (≈480px, 24fps, < 3 MB).
 
 ## Movimento
 - Consentiti: comparsa delle sezioni, sollevamento di card e pulsanti, leggero zoom delle foto al passaggio, forme fluttuanti lente, gallery e loghi a scorrimento.

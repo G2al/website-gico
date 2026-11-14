@@ -1,10 +1,16 @@
 import type { Metadata } from "next";
-import { Nunito } from "next/font/google";
+import { Nunito, Poppins } from "next/font/google";
 import "./globals.css";
 
 const nunito = Nunito({
   variable: "--font-nunito",
   subsets: ["latin"],
+});
+
+const poppins = Poppins({
+  variable: "--font-poppins",
+  subsets: ["latin"],
+  weight: ["600"],
 });
 
 export const metadata: Metadata = {
@@ -22,7 +28,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="it"
       data-scroll-behavior="smooth"
-      className={`${nunito.variable} h-full antialiased`}
+      className={`${nunito.variable} ${poppins.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>

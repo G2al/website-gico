@@ -10,7 +10,8 @@
 .perle-facts > div { padding: 18px 20px; border-radius: var(--radius); background: rgb(255 255 255 / 12%); }
 .perle-facts dt { color: var(--giallo); font-size: 13px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; }
 .perle-facts dd { margin: 4px 0 0; color: #fff; font-size: 17px; font-weight: 800; line-height: 1.35; }
-.perle-section .video-block { border: 0; box-shadow: var(--shadow-hover); }
+.perle-videos-title { margin: 0 0 24px; color: #fff; font-size: 24px; text-align: center; }
+.perle-videos-title::after { content: ""; display: block; width: 48px; height: 5px; margin: 10px auto 0; border-radius: 5px; background: var(--giallo); }
 .perle-areas-title { margin: 80px 0 24px; font-size: 28px; }
 .perle-areas { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 18px; margin: 0; padding: 0; list-style: none; }
 .perle-areas > li { display: flex; min-width: 0; }
